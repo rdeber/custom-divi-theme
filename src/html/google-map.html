@@ -1,0 +1,418 @@
+<script>
+    var neighborhoods = [{
+            lat: 43.07305,
+            lng: -89.40123
+        },
+        {
+            lat: 38.03013,
+            lng: -79.03363
+        },
+        {
+            lat: 39.86804,
+            lng: -104.97192
+        },
+        {
+            lat: 43.4503,
+            lng: -80.48319
+        },
+        {
+            lat: 37.83095,
+            lng: -78.737622
+        },
+        {
+            lat: 30.67436,
+            lng: -96.36996
+        },
+        {
+            lat: 44.81806,
+            lng: -63.61207
+        },
+        {
+            lat: 32.46097,
+            lng: -84.9877
+        },
+        {
+            lat: 29.64635,
+            lng: -82.6065
+        },
+        {
+            lat: 35.0462,
+            lng: -83.81795
+        },
+        {
+            lat: 32.73568,
+            lng: -97.10806
+        },
+        {
+            lat: 40.58526,
+            lng: -105.08442
+        },
+        {
+            lat: 39.97776,
+            lng: -105.13192
+        },
+        {
+            lat: 39.09972,
+            lng: -94.57856
+        },
+        {
+            lat: 37.8793,
+            lng: -78.12888
+        },
+        {
+            lat: 43.65322,
+            lng: -79.38318
+        },
+        {
+            lat: 35.77958,
+            lng: -78.63817
+        },
+        {
+            lat: 40.58526,
+            lng: -105.08442
+        },
+        {
+            lat: 49.16588,
+            lng: -123.94006
+        },
+        {
+            lat: 39.73923,
+            lng: -104.99025
+        },
+        {
+            lat: 38.06846,
+            lng: -78.88946
+        },
+        {
+            lat: 43.65322,
+            lng: -79.38318
+        },
+        {
+            lat: 43.247,
+            lng: -80.78794
+        },
+        {
+            lat: 38.98222,
+            lng: -94.67079
+        },
+        {
+            lat: 38.06846,
+            lng: -78.88946
+        },
+        {
+            lat: 43.25572,
+            lng: -79.8711
+        },
+        {
+            lat: 39.47176,
+            lng: -104.89483
+        },
+        {
+            lat: 33.95621,
+            lng: -83.98796
+        },
+        {
+            lat: 36.07263,
+            lng: -79.79197
+        }
+
+    ];
+
+    var markers = [];
+    var map;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: {
+                lat: 39.751545,
+                lng: -113.071289
+            },
+            //disableDefaultUI: true,
+            //gestureHandling: 'none',
+            //zoomControl: true,
+            styles: [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.neighborhood",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dadada"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#c9c9c9"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  }
+]
+        });
+
+        var marker = new google.maps.Marker({
+            position: {
+                lat: 39.7392358,
+                lng: -104.990251
+            },
+            map: map,
+            animation: google.maps.Animation.DROP,
+            title: 'Denver HQ',
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 13,
+                strokeColor: '#ee662c',
+                strokeWeight: 3
+            }
+        });
+    }
+
+    function drop() {
+        clearMarkers();
+        for (var i = 0; i < neighborhoods.length; i++) {
+            addMarkerWithTimeout(neighborhoods[i], i * 150);
+        }
+    }
+
+    function addMarkerWithTimeout(position, timeout) {
+        window.setTimeout(function() {
+            markers.push(new google.maps.Marker({
+                position: position,
+                map: map,
+                animation: google.maps.Animation.DROP,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 3,
+                    strokeColor: '#ee662c',
+                    strokeWeight: 2
+                }
+            }));
+        }, timeout);
+    }
+
+    function clearMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+        markers = [];
+    }
+
+    jQuery(document).ready(function($) {
+        drop();
+    });
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqWQ9ClkU-wNcxDGunfuXDmsvAD589qqY&callback=initMap" async defer></script>
+
+
+
+<div id="map-wrap">
+	<div id="map"> </div>
+	<div id="map-text">
+		<h1>Where to Find Us?</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus justo sapien, tincidunt ut semper vitae, suscipit quis diam. Maecenas eu sem augue. Proin porttitor posuere ornare. Donec lacinia ligula tellus, ut laoreet leo semper vel.<p>
+		<button id="drop" onclick="drop()" class="et_pb_contact_submit et_pb_button">Find Us</button>
+	</div>
+</div>

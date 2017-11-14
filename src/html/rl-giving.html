@@ -1,0 +1,175 @@
+<script>
+jQuery(document).ready(function($){
+
+ //randomize items function
+ $.fn.shuffle = function() {
+
+ var allElems = this.get(),
+ getRandom = function(max) {
+ return Math.floor(Math.random() * max);
+ },
+ shuffled = $.map(allElems, function(){
+ var random = getRandom(allElems.length),
+ randEl = $(allElems[random]).clone(true)[0];
+ allElems.splice(random, 1);
+ return randEl;
+ });
+
+ this.each(function(i){
+ $(this).replaceWith($(shuffled[i]));
+ });
+
+ return $(shuffled);
+
+ };
+ //apply randomizer to slick tiles
+ $('.slick-grid .slick-tile').shuffle();
+
+ //initialize slick slider
+ $('.slick-grid').slick({
+ infinite: true,
+ slidesToShow: 5,
+ slidesToScroll: 5,
+ touchThreshold: 5,
+ rows: 2
+
+ });
+
+ //initialize tooltips in slider
+ $('.hasTooltip').each(function() {
+ $(this).qtip({
+ content: {
+ text: $(this).next('div')
+ },
+ position: {
+ viewport: $(window)
+ }
+ });
+ });
+
+});
+</script>
+
+<div class="slick-grid">
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-1.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-1.jpg">
+			<div class="slick-tooltip">
+				<h5>Alliance of Therapy Dogs</h5>
+				<p>A volunteer organization whose goal is to provide registration, support, and insurance for members who are involved in volunteer animal-assisted activities.</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-1.jpg">
+		</div>
+	</div>
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-2.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-2.jpg">
+			<div class="slick-tooltip">
+				<h5>The Longest Day</h5>
+				<p>An Alzheimer’s Association event that takes place every summer solstice to raise funds and awareness for care, support and research.</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-2.jpg">
+		</div>
+	</div>
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-3.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-3.jpg">
+			<div class="slick-tooltip">
+				<h5>Make-A-Wish</h5>
+				<p>A non-profit whose vision is to grant the wish of every child diagnosed with a life-threatening medical condition.</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-3.jpg">
+		</div>
+	</div>
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-4.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-4.jpg">
+			<div class="slick-tooltip">
+				<h5>BookTrust</h5>
+				<p>An organization inspiring kids to read by delivering books to kids across 18 states.</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-4.jpg">
+		</div>
+	</div>
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-5.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-5.jpg">
+			<div class="slick-tooltip">
+				<h5>Rocky Mountain MicroFinance Institute</h5>
+				<p>A community creating economic and social mobility through entrepreneurship.</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-5.jpg">
+		</div>
+	</div>
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-6.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-6.jpg">
+			<div class="slick-tooltip">
+				<h5>Elder Aid</h5>
+				<p>An organization that helps people in Bryan and College Station, Texas to live independently for as long as possible.</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-6.jpg">
+		</div>
+	</div>
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-7.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-7.jpg">
+			<div class="slick-tooltip">
+				<h5>Ecotech Institute</h5>
+				<p>A private college focused on a curriculum that prepares students for careers in sustainable energy fields (wind, solar, etc.).</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-7.jpg">
+		</div>
+	</div>
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-8.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-8.jpg">
+			<div class="slick-tooltip">
+				<h5>Dress-A-Girl Around The World</h5>
+				<p>A campaign under Hope 4 Women International bringing dignity to women around the world through dress donations.</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-8.jpg">
+		</div>
+	</div>
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-9.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-9.jpg">
+			<div class="slick-tooltip">
+				<h5>Making Strides Against Breast Cancer Walk</h5>
+				<p>A three to five mile honor and awareness walk hosted by the American Cancer Society.</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-9.jpg">
+		</div>
+	</div>
+
+	<div class="slick-tile">
+		<img src="/wp-content/themes/rl-divi/images/rlgiving-10.jpg">
+		<div class="slick-desciption">
+			<img class="hasTooltip" src="/wp-content/themes/rl-divi/images/rlgiving-10.jpg">
+			<div class="slick-tooltip">
+				<h5>Operation Gratitude</h5>
+				<p>Provides volunteer opportunities for civilians anywhere in America to express their appreciation to all who serve our nation and annually sends 200,000+ care packages.</p>
+			</div>
+			<img src="/wp-content/themes/rl-divi/images/rlgiving-10.jpg">
+		</div>
+	</div>
+
+</div>
