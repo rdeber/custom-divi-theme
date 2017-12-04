@@ -4,12 +4,12 @@
 
 ### 1. Clone repo
 ```
-git clone https://github.com/marcinkrzeminski/gulp-starter-kit.git
+git clone ssh://rdeber@bitbucket.org/rdeber/rl-divi-project.git rl-divi-project
 ```
 
 ### 2. Go inside cloned repo
 ```
-cd gulp-starter-kit
+cd rl-divi-project
 ```
 
 ### 3. Install all dependencies (make sure nodejs with npm is installed on your machine)
@@ -22,7 +22,7 @@ npm install
 gulp
 ```
 
-## Build 
+## Build
 
 In order to build the production version of your project run __gulp build__ from the root of cloned repo.
 
@@ -42,5 +42,3 @@ In order to build the production version of your project run __gulp build__ from
 - gulp-htlmin
 - del
 - run-sequence
-
-Big thanks to all the authors of these packages :heart:
