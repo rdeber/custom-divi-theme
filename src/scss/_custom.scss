@@ -1807,35 +1807,6 @@
 }
 
 ////////////////////////
-//nonprofit page
-////////////////////////
-.page-nonprofit {
-	&.section-hero {
-		img {
-			max-width: 150px;
-		}
-		@include breakpoint(laptop) {
-			h1 {
-				font-size: 4vw;
-			}
-			.et_pb_fullwidth_header_subhead {
-				font-size: 1.75vw;
-			}
-			.et_pb_fullwidth_header_container .header-content {
-				padding: 6rem 0 1rem;
-			}
-		}
-	}
-	&.section-welcome .et_pb_fullwidth_header {
-		padding: 1.5rem 0 2rem;
-	}
-	&.et_pb_section,
-	.et_pb_row {
-		padding: 0;
-	}
-}
-
-////////////////////////
 //process page
 ////////////////////////
 #process-how-we-work {
@@ -3018,13 +2989,60 @@ body.home #particles-js {
 ////////////////////////
 //success stories pages
 ////////////////////////
-.success-stories.et_pb_fullwidth_section.section-hero {
+.success-stories {
 
-	.et_pb_fullwidth_logo_image {
-		max-width: 200px;
+	&.section-hero {
+		img {
+			max-width: 150px;
+		}
+		@include breakpoint(laptop) {
+			h1 {
+				font-size: 4vw;
+			}
+			.et_pb_fullwidth_header_subhead {
+				font-size: 1.75vw;
+			}
+			.et_pb_fullwidth_header_container .header-content {
+				padding: 6rem 0 1rem;
+			}
+		}
+	}
+	&.section-welcome .et_pb_fullwidth_header {
+		padding: 1.5rem 0 2rem;
+	}
+	&.et_pb_section,
+	.et_pb_row {
+		padding: 0;
 	}
 }
-
+////////////////////////
+//nonprofit page
+////////////////////////
+.page-nonprofit {
+	&.section-hero {
+		img {
+			max-width: 150px;
+		}
+		@include breakpoint(laptop) {
+			h1 {
+				font-size: 4vw;
+			}
+			.et_pb_fullwidth_header_subhead {
+				font-size: 1.75vw;
+			}
+			.et_pb_fullwidth_header_container .header-content {
+				padding: 6rem 0 1rem;
+			}
+		}
+	}
+	&.section-welcome .et_pb_fullwidth_header {
+		padding: 1.5rem 0 2rem;
+	}
+	&.et_pb_section,
+	.et_pb_row {
+		padding: 0;
+	}
+}
 
 
  /*********************
