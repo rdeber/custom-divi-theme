@@ -27,7 +27,6 @@ add_action( 'wp_enqueue_scripts', 'rl_assets' );
 //add 1440px image size
 add_image_size('image_1440', 1440, 9999, false);
 
-
 //move the 'wp_make_content_images_responsive' filter to run last
 remove_filter( 'the_content', 'wp_make_content_images_responsive', 10);
 add_filter( 'the_content', 'wp_make_content_images_responsive', 1600, 1);

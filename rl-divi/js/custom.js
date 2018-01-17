@@ -15,8 +15,8 @@ jQuery(document).ready(function($) {
       mainClass: 'mfp-fade'
     });
 
-
     $('.slick-tile').attr('tabindex', '0');
+
     //equal height elements jquery
     $.fn.equalHeights = function(minHeight, maxHeight) {
         tallest = (minHeight) ? minHeight : 0;
@@ -69,7 +69,7 @@ jQuery(document).ready(function($) {
     //apply randomizer to slick tiles
     $('.slick-grid .slick-tile').shuffle();
 
-    //initialize slick slider
+    //initialize slick slider for team wall
     $('.slick-grid-team').slick({
         infinite: true,
         slidesToShow: 9,
@@ -78,10 +78,9 @@ jQuery(document).ready(function($) {
         rows: 3,
         prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button"></button>',
         nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button"></button>'
-
     });
 
-    //initialize slick slider #2
+    //initialize slick slider for rl-giving
     $('.slick-grid-giving').slick({
         infinite: true,
         slidesToShow: 5,
@@ -90,7 +89,44 @@ jQuery(document).ready(function($) {
         rows: 2
     });
 
-    //initialize tooltips in slider
+    //initialize slick slider for client logos
+    $('.slick-grid-clients').slick({
+        infinite: true,
+        slidesToShow: 9,
+        slidesToScroll: 3,
+        touchThreshold: 21,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button"></button>',
+        nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button"></button>',
+        dots: false,
+        pauseOnHover: true,
+        responsive: [{
+          breakpoint: 980,
+          settings: {
+            slidesToShow: 7
+          }
+        }, {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 5
+          }
+        }]
+    });
+
+    //initialize flickity client logos
+    $('.main-carousel').flickity({
+      // options
+      wrapAround: true,
+      contain: true,
+      freeScroll: true,
+      prevNextButtons: false,
+      pageDots: false,
+      autoPlay: 1500,
+      pauseAutoPlayOnHover: true
+    });
+
+    //initialize tooltips in enhanced slick slider
     $('.hasTooltip').each(function() {
         $(this).qtip({
             content: {
@@ -102,6 +138,21 @@ jQuery(document).ready(function($) {
         });
     });
 
+    //initialize tooltips for clients logos
+    /*
+    $('.slick-grid-clients img[alt]').qtip({
+        content: {
+            attr: 'alt'
+        },
+        position: {
+          target: 'mouse', // Track the mouse as the positioning target
+          adjust: { x: 5, y: 5 } // Offset it slightly from under the mouse
+        },
+        style: {
+          classes: 'client-tooltip'
+        }
+    });
+    */
 });
 
 //custom particle effects
