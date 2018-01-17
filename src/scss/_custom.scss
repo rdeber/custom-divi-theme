@@ -979,16 +979,16 @@
 	}
 	.slick-next {
 		left: auto;
-		right: -66px;
+		right: -40px;
 	}
 	.slick-prev {
-		left: -66px;
+		left: -40px;
 	}
 	.slick-prev:before,
 	.slick-next:before {
 		content: "\f053";
 		font-family: 'FontAwesome';
-		font-size: 66px;
+		font-size: 40px;
 	}
 	.slick-next:before {
 		content: "\f054";
@@ -996,7 +996,7 @@
 
 	&.slick-grid-clients {
 		.slick-list {
-			padding: 2rem 1rem 1rem;
+			padding: 2.5rem 1rem 1rem;
 			text-align: center;
 		}
 		img {
