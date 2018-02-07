@@ -93,14 +93,16 @@ jQuery(document).ready(function($) {
     $('.slick-grid-clients').slick({
         infinite: true,
         slidesToShow: 9,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         touchThreshold: 21,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 3000,
         prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button"></button>',
         nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button"></button>',
         dots: false,
         pauseOnHover: true,
+        centerMode: true,
+        centerPadding: '2.5rem 60px 1rem 60px',
         responsive: [{
           breakpoint: 980,
           settings: {
@@ -114,16 +116,13 @@ jQuery(document).ready(function($) {
         }]
     });
 
-    //initialize flickity client logos
-    $('.main-carousel').flickity({
-      // options
-      wrapAround: true,
-      contain: true,
-      freeScroll: true,
-      prevNextButtons: false,
-      pageDots: false,
-      autoPlay: 1500,
-      pauseAutoPlayOnHover: true
+    //make non-centered slick tiles clickable and move to center focus
+    $('.slick-grid-clients').on('click', '.slick-slide', function (e) {
+      e.stopPropagation();
+      var index = $(this).data("slick-index");
+      if ($('.slick-slider').slick('slickCurrentSlide') !== index) {
+        $('.slick-slider').slick('slickGoTo', index);
+      }
     });
 
     //initialize tooltips in enhanced slick slider
