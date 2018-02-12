@@ -137,21 +137,28 @@ jQuery(document).ready(function($) {
         });
     });
 
-    //initialize tooltips for clients logos
-    /*
-    $('.slick-grid-clients img[alt]').qtip({
-        content: {
-            attr: 'alt'
-        },
-        position: {
-          target: 'mouse', // Track the mouse as the positioning target
-          adjust: { x: 5, y: 5 } // Offset it slightly from under the mouse
-        },
-        style: {
-          classes: 'client-tooltip'
-        }
-    });
-    */
+    //initialize solutions svg and build interactions
+    var s = Snap("#svg-solutions");
+    Snap.load("/wp-content/themes/rl-divi/images/rl-solutions.svg",
+              onSVGLoaded);
+
+    function onSVGLoaded(data) {
+          s.append( data );
+
+          //initialize tooltips for solutions svg
+          $('#circles-1 path').qtip({
+            content: {
+                text: 'Support for SVG with no extra configuration! Awesome.'
+            },
+            position: {
+                my: 'top left',
+                at: 'right bottom'
+            }
+          });
+    }
+
+
+
 });
 
 //custom particle effects
@@ -265,3 +272,4 @@ particlesJS("particles-js", {
   },
   "retina_detect": true
 });
+
