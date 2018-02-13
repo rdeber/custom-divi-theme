@@ -20,10 +20,13 @@
 		h2 {
 			font-size: 3rem;
 		}
-		p {
-			font-size: 2rem;
-			line-height: 1.25;
+		h2 + p {
+			font-size: 1.5rem;
 			font-weight: 300;
+		}
+		p {
+			font-size: 1.2rem;
+			line-height: 1.4;
 		}
 	}
 	.et_pb_button {
@@ -56,19 +59,51 @@
 				}
 			}
 		}
-		.et_pb_text_inner {
-			h3 {
-				font-size: 2.25rem;
-			}
-			h3 + p {
-				font-size: 1.5rem;
-				font-weight: 300;
-			}
-			p {
-				color: rgba(255, 255, 255, 0.75);
-				font-size: 1.2rem;
-				line-height: 1.4;
-			}
+	}
+}
+
+.solutions-svg-btn-1 {
+	color: $rl-orange;
+}
+.solutions-svg-btn-2 {
+	color: $rl-blue;
+}
+.solutions-svg-btn-3 {
+	color: $rl-teal;
+}
+.solutions-svg-btn-4 {
+	color: $rl-purple;
+}
+
+.solutions-svg-container {
+	path.cls-1 {
+		fill: $rl-gray-200;
+	}
+	path.cls-2 {
+		fill: $rl-blue-600;
+	}
+	path.cls-3 {
+		fill: $rl-blue-900;
+	}
+	path.cls-4 {
+		fill: $rl-orange-600;
+	}
+	&.svg-active-dots-1 {
+		path.cls-3,
+		path.cls-4 {
+			fill-opacity: .25;
+		}
+	}
+	&.svg-active-dots-2 {
+		path.cls-2,
+		path.cls-4 {
+			fill-opacity: .25;
+		}
+	}
+	&.svg-active-dots-3 {
+		path.cls-2,
+		path.cls-3 {
+			fill-opacity: .25;
 		}
 	}
 }

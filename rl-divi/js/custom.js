@@ -137,27 +137,25 @@ jQuery(document).ready(function($) {
         });
     });
 
-    //initialize solutions svg and build interactions
-    var s = Snap("#svg-solutions");
-    Snap.load("/wp-content/themes/rl-divi/images/rl-solutions.svg",
-              onSVGLoaded);
+    var s = Snap("#solutions-svg");
+    Snap.load("https://rlwebsite2017.wpengine.com/wp-content/themes/rl-divi/images/svg/rl-solutions-dots.svg", onSVGLoaded ) ;
 
-    function onSVGLoaded(data) {
-          s.append( data );
-
-          //initialize tooltips for solutions svg
-          $('#circles-1 path').qtip({
-            content: {
-                text: 'Support for SVG with no extra configuration! Awesome.'
-            },
-            position: {
-                my: 'top left',
-                at: 'right bottom'
-            }
-          });
+    function onSVGLoaded( data ){
+        s.append( data );
     }
 
-
+    $(".solutions-svg-btn-1").hover(function () {
+        $("#circles-1").toggleClass("svg-active");
+    });
+    $(".solutions-svg-btn-2").hover(function () {
+        $("#circles-2").toggleClass("svg-active");
+    });
+    $(".solutions-svg-btn-3").hover(function () {
+        $("#circles-3").toggleClass("svg-active");
+    });
+    $(".solutions-svg-btn-4").hover(function () {
+        $("#lines").toggleClass("svg-active");
+    });
 
 });
 

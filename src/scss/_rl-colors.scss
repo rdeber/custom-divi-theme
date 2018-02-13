@@ -1,0 +1,897 @@
+//== Colors
+//
+//## RL brand colors
+
+$rl-orange:              #ee662c;
+$rl-dark:                #384042;
+$rl-light:               #e3e9eb;
+$rl-gray:                $rl-dark;
+$rl-blue:                #4881a9;
+$rl-teal:                #6bbbb6;
+$rl-purple:              #67597a;
+$rl-yellow:              #ffb755;
+$rl-white:               #ffffff;
+$rl-transparent:         transparent;
+
+//Orange Palette
+$rl-orange-50:   tint($rl-orange, 75%);
+$rl-orange-100:  tint($rl-orange, 60%);
+$rl-orange-200:  tint($rl-orange, 45%);
+$rl-orange-300:  tint($rl-orange, 30%);
+$rl-orange-400:  tint($rl-orange, 15%);
+$rl-orange-500:  $rl-orange;
+$rl-orange-600:  shade($rl-orange, 10%);
+$rl-orange-700:  shade($rl-orange, 20%);
+$rl-orange-800:  shade($rl-orange, 30%);
+$rl-orange-900:  shade($rl-orange, 40%);
+
+//Gray Palette
+$rl-gray-50:   tint($rl-light, 70%);
+$rl-gray-100:  tint($rl-light, 35%);
+$rl-gray-200:  $rl-light;
+$rl-gray-300:  mix($rl-light, $rl-dark, 90%);
+$rl-gray-400:  mix($rl-light, $rl-dark, 65%);
+$rl-gray-500:  mix($rl-light, $rl-dark, 40%);
+$rl-gray-600:  mix($rl-light, $rl-dark, 15%);
+$rl-gray-700:  $rl-dark;
+$rl-gray-800:  shade($rl-dark, 35%);
+$rl-gray-900:  shade($rl-dark, 70%);
+
+//Dark Palette
+$rl-dark-50:   tint($rl-dark, 75%);
+$rl-dark-100:  tint($rl-dark, 60%);
+$rl-dark-200:  tint($rl-dark, 45%);
+$rl-dark-300:  tint($rl-dark, 30%);
+$rl-dark-400:  tint($rl-dark, 15%);
+$rl-dark-500:  $rl-dark;
+$rl-dark-600:  shade($rl-dark, 10%);
+$rl-dark-700:  shade($rl-dark, 20%);
+$rl-dark-800:  shade($rl-dark, 30%);
+$rl-dark-900:  shade($rl-dark, 40%);
+
+//Light Palette
+$rl-light-50:   tint($rl-light, 90%);
+$rl-light-100:  tint($rl-light, 80%);
+$rl-light-200:  tint($rl-light, 60%);
+$rl-light-300:  tint($rl-light, 40%);
+$rl-light-400:  tint($rl-light, 20%);
+$rl-light-500:  $rl-light;
+$rl-light-600:  shade($rl-light, 10%);
+$rl-light-700:  shade($rl-light, 20%);
+$rl-light-800:  shade($rl-light, 30%);
+$rl-light-900:  shade($rl-light, 40%);
+
+//Blue Palette
+$rl-blue-50:   tint($rl-blue, 75%);
+$rl-blue-100:  tint($rl-blue, 60%);
+$rl-blue-200:  tint($rl-blue, 45%);
+$rl-blue-300:  tint($rl-blue, 30%);
+$rl-blue-400:  tint($rl-blue, 15%);
+$rl-blue-500:  $rl-blue;
+$rl-blue-600:  shade($rl-blue, 10%);
+$rl-blue-700:  shade($rl-blue, 20%);
+$rl-blue-800:  shade($rl-blue, 30%);
+$rl-blue-900:  shade($rl-blue, 40%);
+
+//Teal Palette
+$rl-teal-50:   tint($rl-teal, 75%);
+$rl-teal-100:  tint($rl-teal, 60%);
+$rl-teal-200:  tint($rl-teal, 45%);
+$rl-teal-300:  tint($rl-teal, 30%);
+$rl-teal-400:  tint($rl-teal, 15%);
+$rl-teal-500:  $rl-teal;
+$rl-teal-600:  shade($rl-teal, 10%);
+$rl-teal-700:  shade($rl-teal, 20%);
+$rl-teal-800:  shade($rl-teal, 30%);
+$rl-teal-900:  shade($rl-teal, 40%);
+
+//Purple Palette
+$rl-purple-50:   tint($rl-purple, 75%);
+$rl-purple-100:  tint($rl-purple, 60%);
+$rl-purple-200:  tint($rl-purple, 45%);
+$rl-purple-300:  tint($rl-purple, 30%);
+$rl-purple-400:  tint($rl-purple, 15%);
+$rl-purple-500:  $rl-purple;
+$rl-purple-600:  shade($rl-purple, 10%);
+$rl-purple-700:  shade($rl-purple, 20%);
+$rl-purple-800:  shade($rl-purple, 30%);
+$rl-purple-900:  shade($rl-purple, 40%);
+
+//Yellow Palette
+$rl-yellow-50:   tint($rl-yellow, 75%);
+$rl-yellow-100:  tint($rl-yellow, 60%);
+$rl-yellow-200:  tint($rl-yellow, 45%);
+$rl-yellow-300:  tint($rl-yellow, 30%);
+$rl-yellow-400:  tint($rl-yellow, 15%);
+$rl-yellow-500:  $rl-yellow;
+$rl-yellow-600:  shade($rl-yellow, 10%);
+$rl-yellow-700:  shade($rl-yellow, 20%);
+$rl-yellow-800:  shade($rl-yellow, 30%);
+$rl-yellow-900:  shade($rl-yellow, 40%);
+
+
+.rl-orange {
+    //background colors
+    &-bg {
+        background-color: $rl-orange-500;
+    }
+    &-50-bg {
+        background-color: $rl-orange-50;
+    }
+    &-100-bg {
+        background-color: $rl-orange-100;
+    }
+    &-200-bg {
+        background-color: $rl-orange-200;
+    }
+    &-300-bg {
+        background-color: $rl-orange-300;
+    }
+    &-400-bg {
+        background-color: $rl-orange-400;
+    }
+    &-500-bg {
+        background-color: $rl-orange-500;
+    }
+    &-600-bg {
+        background-color: $rl-orange-600;
+    }
+    &-700-bg {
+        background-color: $rl-orange-700;
+    }
+    &-800-bg {
+        background-color: $rl-orange-800;
+    }
+    &-900-bg {
+        background-color: $rl-orange-900;
+    }
+
+    //font colors
+    &-text {
+        color: $rl-orange-500;
+    }
+    &-50-text {
+        color: $rl-orange-50;
+    }
+    &-100-text {
+        color: $rl-orange-100;
+    }
+    &-200-text {
+        color: $rl-orange-200;
+    }
+    &-300-text {
+        color: $rl-orange-300;
+    }
+    &-400-text {
+        color: $rl-orange-400;
+    }
+    &-500-text {
+        color: $rl-orange-500;
+    }
+    &-600-text {
+        color: $rl-orange-600;
+    }
+    &-700-text {
+        color: $rl-orange-700;
+    }
+    &-800-text {
+        color: $rl-orange-800;
+    }
+    &-900-text {
+        color: $rl-orange-900;
+    }
+
+    //Border colors
+    &-border {
+        border-color: $rl-orange-500;
+    }
+    &-50-border {
+        border-color: $rl-orange-50;
+    }
+    &-100-border {
+        border-color: $rl-orange-100;
+    }
+    &-200-border {
+        border-color: $rl-orange-200;
+    }
+    &-300-border {
+        border-color: $rl-orange-300;
+    }
+    &-400-border {
+        border-color: $rl-orange-400;
+    }
+    &-500-border {
+        border-color: $rl-orange-500;
+    }
+    &-600-border {
+        border-color: $rl-orange-600;
+    }
+    &-700-border {
+        border-color: $rl-orange-700;
+    }
+    &-800-border {
+        border-color: $rl-orange-800;
+    }
+    &-900-border {
+        border-color: $rl-orange-900;
+    }
+
+    //button colors
+    &-btn {
+        background-color: $rl-orange-600;
+        color: #fff;
+        &:hover,
+        &:focus {
+            background-color: $rl-orange-700;
+            color: #fff;
+        }
+        &:active,
+        &:active:hover {
+            background-color: $rl-orange-800;
+            color: #fff;
+        }
+    }
+}
+
+.rl-gray {
+    //background colors
+    &-bg {
+        background-color: $rl-gray-500;
+    }
+    &-50-bg {
+        background-color: $rl-gray-50;
+    }
+    &-100-bg {
+        background-color: $rl-gray-100;
+    }
+    &-200-bg {
+        background-color: $rl-gray-200;
+    }
+    &-300-bg {
+        background-color: $rl-gray-300;
+    }
+    &-400-bg {
+        background-color: $rl-gray-400;
+    }
+    &-500-bg {
+        background-color: $rl-gray-500;
+    }
+    &-600-bg {
+        background-color: $rl-gray-600;
+    }
+    &-700-bg {
+        background-color: $rl-gray-700;
+    }
+    &-800-bg {
+        background-color: $rl-gray-800;
+    }
+    &-900-bg {
+        background-color: $rl-gray-900;
+    }
+
+    //font colors
+    &-text {
+        color: $rl-gray-500;
+    }
+    &-50-text {
+        color: $rl-gray-50;
+    }
+    &-100-text {
+        color: $rl-gray-100;
+    }
+    &-200-text {
+        color: $rl-gray-200;
+    }
+    &-300-text {
+        color: $rl-gray-300;
+    }
+    &-400-text {
+        color: $rl-gray-400;
+    }
+    &-500-text {
+        color: $rl-gray-500;
+    }
+    &-600-text {
+        color: $rl-gray-600;
+    }
+    &-700-text {
+        color: $rl-gray-700;
+    }
+    &-800-text {
+        color: $rl-gray-800;
+    }
+    &-900-text {
+        color: $rl-gray-900;
+    }
+
+    //Border colors
+    &-border {
+        border-color: $rl-gray-500;
+    }
+    &-50-border {
+        border-color: $rl-gray-50;
+    }
+    &-100-border {
+        border-color: $rl-gray-100;
+    }
+    &-200-border {
+        border-color: $rl-gray-200;
+    }
+    &-300-border {
+        border-color: $rl-gray-300;
+    }
+    &-400-border {
+        border-color: $rl-gray-400;
+    }
+    &-500-border {
+        border-color: $rl-gray-500;
+    }
+    &-600-border {
+        border-color: $rl-gray-600;
+    }
+    &-700-border {
+        border-color: $rl-gray-700;
+    }
+    &-800-border {
+        border-color: $rl-gray-800;
+    }
+    &-900-border {
+        border-color: $rl-gray-900;
+    }
+
+    //button colors
+    &-btn {
+        background-color: $rl-gray-500;
+        color: #fff;
+        &:hover,
+        &:focus {
+            background-color: $rl-gray-600;
+            color: $rl-orange-500;
+        }
+        &:active,
+        &:active:hover {
+            background-color: $rl-gray-700;
+            color: $rl-orange-500;
+        }
+    }
+}
+
+//light gray button colors
+.rl-light-btn {
+    background-color: $rl-gray-200;
+    color: $rl-gray-800;
+    &:hover,
+    &:focus {
+        background-color: $rl-gray-300;
+        color: $rl-gray-800;
+    }
+    &:active,
+    &:active:hover {
+        background-color: $rl-gray-100;
+        color: $rl-gray-800;
+    }
+}
+
+//Blue Palette
+.rl-blue {
+    //background colors
+    &-bg {
+        background-color: $rl-blue-500;
+    }
+    &-50-bg {
+        background-color: $rl-blue-50;
+    }
+    &-100-bg {
+        background-color: $rl-blue-100;
+    }
+    &-200-bg {
+        background-color: $rl-blue-200;
+    }
+    &-300-bg {
+        background-color: $rl-blue-300;
+    }
+    &-400-bg {
+        background-color: $rl-blue-400;
+    }
+    &-500-bg {
+        background-color: $rl-blue-500;
+    }
+    &-600-bg {
+        background-color: $rl-blue-600;
+    }
+    &-700-bg {
+        background-color: $rl-blue-700;
+    }
+    &-800-bg {
+        background-color: $rl-blue-800;
+    }
+    &-900-bg {
+        background-color: $rl-blue-900;
+    }
+
+    //font colors
+    &-text {
+        color: $rl-blue-500;
+    }
+    &-50-text {
+        color: $rl-blue-50;
+    }
+    &-100-text {
+        color: $rl-blue-100;
+    }
+    &-200-text {
+        color: $rl-blue-200;
+    }
+    &-300-text {
+        color: $rl-blue-300;
+    }
+    &-400-text {
+        color: $rl-blue-400;
+    }
+    &-500-text {
+        color: $rl-blue-500;
+    }
+    &-600-text {
+        color: $rl-blue-600;
+    }
+    &-700-text {
+        color: $rl-blue-700;
+    }
+    &-800-text {
+        color: $rl-blue-800;
+    }
+    &-900-text {
+        color: $rl-blue-900;
+    }
+
+    //Border colors
+    &-border {
+        border-color: $rl-blue-500;
+    }
+    &-50-border {
+        border-color: $rl-blue-50;
+    }
+    &-100-border {
+        border-color: $rl-blue-100;
+    }
+    &-200-border {
+        border-color: $rl-blue-200;
+    }
+    &-300-border {
+        border-color: $rl-blue-300;
+    }
+    &-400-border {
+        border-color: $rl-blue-400;
+    }
+    &-500-border {
+        border-color: $rl-blue-500;
+    }
+    &-600-border {
+        border-color: $rl-blue-600;
+    }
+    &-700-border {
+        border-color: $rl-blue-700;
+    }
+    &-800-border {
+        border-color: $rl-blue-800;
+    }
+    &-900-border {
+        border-color: $rl-blue-900;
+    }
+
+    //button colors
+    &-btn {
+        background-color: $rl-blue-600;
+        color: #fff;
+        &:hover,
+        &:focus {
+            background-color: $rl-blue-700;
+            color: #fff;
+        }
+        &:active,
+        &:active:hover {
+            background-color: $rl-blue-800;
+            color: #fff;
+        }
+    }
+}
+
+//Teal Palette
+.rl-teal {
+    //background colors
+    &-bg {
+        background-color: $rl-teal-500;
+    }
+    &-50-bg {
+        background-color: $rl-teal-50;
+    }
+    &-100-bg {
+        background-color: $rl-teal-100;
+    }
+    &-200-bg {
+        background-color: $rl-teal-200;
+    }
+    &-300-bg {
+        background-color: $rl-teal-300;
+    }
+    &-400-bg {
+        background-color: $rl-teal-400;
+    }
+    &-500-bg {
+        background-color: $rl-teal-500;
+    }
+    &-600-bg {
+        background-color: $rl-teal-600;
+    }
+    &-700-bg {
+        background-color: $rl-teal-700;
+    }
+    &-800-bg {
+        background-color: $rl-teal-800;
+    }
+    &-900-bg {
+        background-color: $rl-teal-900;
+    }
+
+    //font colors
+    &-text {
+        color: $rl-teal-500;
+    }
+    &-50-text {
+        color: $rl-teal-50;
+    }
+    &-100-text {
+        color: $rl-teal-100;
+    }
+    &-200-text {
+        color: $rl-teal-200;
+    }
+    &-300-text {
+        color: $rl-teal-300;
+    }
+    &-400-text {
+        color: $rl-teal-400;
+    }
+    &-500-text {
+        color: $rl-teal-500;
+    }
+    &-600-text {
+        color: $rl-teal-600;
+    }
+    &-700-text {
+        color: $rl-teal-700;
+    }
+    &-800-text {
+        color: $rl-teal-800;
+    }
+    &-900-text {
+        color: $rl-teal-900;
+    }
+
+    //Border colors
+    &-border {
+        border-color: $rl-teal-500;
+    }
+    &-50-border {
+        border-color: $rl-teal-50;
+    }
+    &-100-border {
+        border-color: $rl-teal-100;
+    }
+    &-200-border {
+        border-color: $rl-teal-200;
+    }
+    &-300-border {
+        border-color: $rl-teal-300;
+    }
+    &-400-border {
+        border-color: $rl-teal-400;
+    }
+    &-500-border {
+        border-color: $rl-teal-500;
+    }
+    &-600-border {
+        border-color: $rl-teal-600;
+    }
+    &-700-border {
+        border-color: $rl-teal-700;
+    }
+    &-800-border {
+        border-color: $rl-teal-800;
+    }
+    &-900-border {
+        border-color: $rl-teal-900;
+    }
+
+    //button colors
+    &-btn {
+        background-color: $rl-teal-600;
+        color: #fff;
+        &:hover,
+        &:focus {
+            background-color: $rl-teal-700;
+            color: #fff;
+        }
+        &:active,
+        &:active:hover {
+            background-color: $rl-teal-800;
+            color: #fff;
+        }
+    }
+}
+
+//Purple Palette
+.rl-purple {
+    //background colors
+    &-bg {
+        background-color: $rl-purple-500;
+    }
+    &-50-bg {
+        background-color: $rl-purple-50;
+    }
+    &-100-bg {
+        background-color: $rl-purple-100;
+    }
+    &-200-bg {
+        background-color: $rl-purple-200;
+    }
+    &-300-bg {
+        background-color: $rl-purple-300;
+    }
+    &-400-bg {
+        background-color: $rl-purple-400;
+    }
+    &-500-bg {
+        background-color: $rl-purple-500;
+    }
+    &-600-bg {
+        background-color: $rl-purple-600;
+    }
+    &-700-bg {
+        background-color: $rl-purple-700;
+    }
+    &-800-bg {
+        background-color: $rl-purple-800;
+    }
+    &-900-bg {
+        background-color: $rl-purple-900;
+    }
+
+    //font colors
+    &-text {
+        color: $rl-purple-500;
+    }
+    &-50-text {
+        color: $rl-purple-50;
+    }
+    &-100-text {
+        color: $rl-purple-100;
+    }
+    &-200-text {
+        color: $rl-purple-200;
+    }
+    &-300-text {
+        color: $rl-purple-300;
+    }
+    &-400-text {
+        color: $rl-purple-400;
+    }
+    &-500-text {
+        color: $rl-purple-500;
+    }
+    &-600-text {
+        color: $rl-purple-600;
+    }
+    &-700-text {
+        color: $rl-purple-700;
+    }
+    &-800-text {
+        color: $rl-purple-800;
+    }
+    &-900-text {
+        color: $rl-purple-900;
+    }
+
+    //Border colors
+    &-border {
+        border-color: $rl-purple-500;
+    }
+    &-50-border {
+        border-color: $rl-purple-50;
+    }
+    &-100-border {
+        border-color: $rl-purple-100;
+    }
+    &-200-border {
+        border-color: $rl-purple-200;
+    }
+    &-300-border {
+        border-color: $rl-purple-300;
+    }
+    &-400-border {
+        border-color: $rl-purple-400;
+    }
+    &-500-border {
+        border-color: $rl-purple-500;
+    }
+    &-600-border {
+        border-color: $rl-purple-600;
+    }
+    &-700-border {
+        border-color: $rl-purple-700;
+    }
+    &-800-border {
+        border-color: $rl-purple-800;
+    }
+    &-900-border {
+        border-color: $rl-purple-900;
+    }
+
+    //button colors
+    &-btn {
+        background-color: $rl-purple-600;
+        color: #fff;
+        &:hover,
+        &:focus {
+            background-color: $rl-purple-700;
+            color: #fff;
+        }
+        &:active,
+        &:active:hover {
+            background-color: $rl-purple-800;
+            color: #fff;
+        }
+    }
+}
+
+//Yellow Palette
+.rl-yellow {
+    //background colors
+    &-bg {
+        background-color: $rl-yellow-500;
+    }
+    &-50-bg {
+        background-color: $rl-yellow-50;
+    }
+    &-100-bg {
+        background-color: $rl-yellow-100;
+    }
+    &-200-bg {
+        background-color: $rl-yellow-200;
+    }
+    &-300-bg {
+        background-color: $rl-yellow-300;
+    }
+    &-400-bg {
+        background-color: $rl-yellow-400;
+    }
+    &-500-bg {
+        background-color: $rl-yellow-500;
+    }
+    &-600-bg {
+        background-color: $rl-yellow-600;
+    }
+    &-700-bg {
+        background-color: $rl-yellow-700;
+    }
+    &-800-bg {
+        background-color: $rl-yellow-800;
+    }
+    &-900-bg {
+        background-color: $rl-yellow-900;
+    }
+
+    //font colors
+    &-text {
+        color: $rl-yellow-500;
+    }
+    &-50-text {
+        color: $rl-yellow-50;
+    }
+    &-100-text {
+        color: $rl-yellow-100;
+    }
+    &-200-text {
+        color: $rl-yellow-200;
+    }
+    &-300-text {
+        color: $rl-yellow-300;
+    }
+    &-400-text {
+        color: $rl-yellow-400;
+    }
+    &-500-text {
+        color: $rl-yellow-500;
+    }
+    &-600-text {
+        color: $rl-yellow-600;
+    }
+    &-700-text {
+        color: $rl-yellow-700;
+    }
+    &-800-text {
+        color: $rl-yellow-800;
+    }
+    &-900-text {
+        color: $rl-yellow-900;
+    }
+
+    //Border colors
+    &-border {
+        border-color: $rl-yellow-500;
+    }
+    &-50-border {
+        border-color: $rl-yellow-50;
+    }
+    &-100-border {
+        border-color: $rl-yellow-100;
+    }
+    &-200-border {
+        border-color: $rl-yellow-200;
+    }
+    &-300-border {
+        border-color: $rl-yellow-300;
+    }
+    &-400-border {
+        border-color: $rl-yellow-400;
+    }
+    &-500-border {
+        border-color: $rl-yellow-500;
+    }
+    &-600-border {
+        border-color: $rl-yellow-600;
+    }
+    &-700-border {
+        border-color: $rl-yellow-700;
+    }
+    &-800-border {
+        border-color: $rl-yellow-800;
+    }
+    &-900-border {
+        border-color: $rl-yellow-900;
+    }
+
+    //button colors
+    &-btn {
+        background-color: $rl-yellow-600;
+        color: #fff;
+        &:hover,
+        &:focus {
+            background-color: $rl-yellow-700;
+            color: #fff;
+        }
+        &:active,
+        &:active:hover {
+            background-color: $rl-yellow-800;
+            color: #fff;
+        }
+    }
+}
+
+//White Colors
+.rl-white {
+    //background colors
+    &-bg {
+        background-color: $rl-white;
+    }
+    //font colors
+    &-text {
+        color: $rl-white;
+    }
+    //Border colors
+    &-border {
+        border-color: $rl-white;
+    }
+}
+
+//Transparent Colors
+.rl-transparent {
+    //background colors
+    &-bg {
+        background-color: transparent;
+    }
+    //Border colors
+    &-border {
+        border-color: transparent;
+    }
+}
