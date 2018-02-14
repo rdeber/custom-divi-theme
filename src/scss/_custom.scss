@@ -1,5 +1,5 @@
 //mockups - delete when done
-.mockup-home-v2 {
+.home-welcome {
 	padding: 2rem 0 0 !important;
 
 	@include breakpoint(tablet) {
@@ -45,65 +45,133 @@
 			margin-left: .5rem;
 		}
 	}
+}
 
-	& + .et_pb_section {
-	    padding: 5rem 0 1rem;
+.home-solutions {
 
-	    @include breakpoint(tablet) {
-			.et_pb_row {
-				display: flex;
-				padding: 0;
+	@include breakpoint(tablet) {
+		.et_pb_row {
+			display: flex;
+			padding: 0;
 
-				.et_pb_column {
-					margin: auto;
-				}
+			.et_pb_column {
+				margin: auto;
+			}
+		}
+		.et_pb_code_inner svg {
+			display: flex;
+		}
+	}
+	.et_pb_text_inner {
+		h2 {
+			font-size: 3rem;
+		}
+	}
+}
+
+
+//solutions svg graphic styles
+#solutions-svg {
+	height: 100%;
+	width: 100%;
+	min-height: 75vh;
+
+	path {
+		transition: all 250ms ease-in-out;
+	}
+
+	.lines path {
+		fill: $rl-gray-300;
+	}
+	.circles-1 path {
+		fill: $rl-blue-900;
+	}
+	.circles-2 path {
+		fill: $rl-blue-600;
+	}
+	.circles-3 path {
+		fill: $rl-orange-600;
+	}
+	.icons path {
+		fill: #fff;
+	}
+
+	.circles-1 path,
+	.circles-2 path,
+	.circles-3 path {
+		&:hover,
+		&:focus {
+			transform: scale(1.1);
+		}
+	}
+
+	&.group-1-active {
+		.circles-2 path,
+		.circles-3 path {
+			fill-opacity: .15;
+		}
+	}
+	&.group-2-active {
+		.circles-1 path,
+		.circles-3 path {
+			fill-opacity: .15;
+		}
+	}
+	&.group-3-active {
+		.circles-1 path,
+		.circles-2 path {
+			fill-opacity: .15;
+		}
+	}
+	&.lines-active {
+		.circles-1 path,
+		.circles-2 path,
+		.circles-3 path {
+			fill-opacity: .2;
+		}
+		.icons path {
+			fill-opacity: 0;
+		}
+		path.lines {
+			fill: $rl-gray-500;
+			transform: scale(1.02);
+			transform-origin: center center;
+		}
+	}
+}
+
+//solutions svg content styles
+.solutions-svg-content {
+
+	a {
+		font-weight: 600;
+		color: $rl-gray-700;
+
+		&:hover,
+		&:focus {
+			&.solutions-svg-btn-1 {
+				color: $rl-blue-600;
+			}
+			&.solutions-svg-btn-2 {
+				color: $rl-blue-900;
+			}
+			&.solutions-svg-btn-3 {
+				color: $rl-orange-700;
+			}
+			&.solutions-svg-btn-4 {
+				color: $rl-gray-900;
 			}
 		}
 	}
 }
 
-.solutions-svg-btn-1 {
-	color: $rl-orange;
-}
-.solutions-svg-btn-2 {
-	color: $rl-blue;
-}
-.solutions-svg-btn-3 {
-	color: $rl-teal;
-}
-.solutions-svg-btn-4 {
-	color: $rl-purple;
-}
+//show/hide individual solutions
+.solutions-svg-list {
+	> div {
+		display: none;
 
-.solutions-svg-container {
-	path.cls-1 {
-		fill: $rl-gray-200;
-	}
-	path.cls-2 {
-		fill: $rl-blue-600;
-	}
-	path.cls-3 {
-		fill: $rl-blue-900;
-	}
-	path.cls-4 {
-		fill: $rl-orange-600;
-	}
-	&.svg-active-dots-1 {
-		path.cls-3,
-		path.cls-4 {
-			fill-opacity: .25;
-		}
-	}
-	&.svg-active-dots-2 {
-		path.cls-2,
-		path.cls-4 {
-			fill-opacity: .25;
-		}
-	}
-	&.svg-active-dots-3 {
-		path.cls-2,
-		path.cls-3 {
-			fill-opacity: .25;
+		&.active {
+			display: block;
 		}
 	}
 }

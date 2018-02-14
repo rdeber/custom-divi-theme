@@ -137,24 +137,40 @@ jQuery(document).ready(function($) {
         });
     });
 
+    //initialize and load solutions svg
     var s = Snap("#solutions-svg");
-    Snap.load("https://rlwebsite2017.wpengine.com/wp-content/themes/rl-divi/images/svg/rl-solutions-dots.svg", onSVGLoaded ) ;
+    Snap.load("/wp-content/themes/rl-divi/images/svg/rl-solutions-dots.svg", onSVGLoaded );
 
-    function onSVGLoaded( data ){
-        s.append( data );
-    }
+    function onSVGLoaded(svg){
+        s.append(svg);
 
+        //testing snapsvg animation
+        testscale = s.select(".cls-1");
+        testscale.animate({transform: 's1.5,1.5' }, 500);
+
+        //show/hide individual solutions text
+        $(".cls-2").hover(function () {
+            $('.solutions-svg-list div').filter('[data-solution="access"]').toggleClass('active');
+        });
+        $(".cls-3").hover(function () {
+            $('.solutions-svg-list div').filter('[data-solution="retention"]').toggleClass('active');
+        });
+
+
+    };
+
+    //add hover classes for svg content links
     $(".solutions-svg-btn-1").hover(function () {
-        $("#circles-1").toggleClass("svg-active");
+        $("#solutions-svg").toggleClass("group-1-active");
     });
     $(".solutions-svg-btn-2").hover(function () {
-        $("#circles-2").toggleClass("svg-active");
+        $("#solutions-svg").toggleClass("group-2-active");
     });
     $(".solutions-svg-btn-3").hover(function () {
-        $("#circles-3").toggleClass("svg-active");
+        $("#solutions-svg").toggleClass("group-3-active");
     });
     $(".solutions-svg-btn-4").hover(function () {
-        $("#lines").toggleClass("svg-active");
+        $("#solutions-svg").toggleClass("lines-active");
     });
 
 });
