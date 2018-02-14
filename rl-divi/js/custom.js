@@ -149,6 +149,7 @@ jQuery(document).ready(function($) {
         testscale.animate({transform: 's1.5,1.5' }, 500);
 
         //show/hide individual solutions text
+        /*
         $(".cls-2").bind('hover focus', function() {
             $('.solutions-svg-list div').filter('[data-solution="access"]').toggleClass('active');
             $('.solutions-svg-content').toggleClass('hidden');
@@ -157,6 +158,28 @@ jQuery(document).ready(function($) {
             $('.solutions-svg-list div').filter('[data-solution="retention"]').toggleClass('active');
             $('.solutions-svg-content').toggleClass('hidden');
         });
+        */
+        function showNodeContent() {
+            // Grab data-contentsel to use to find content to show.
+            var contentsel = $(this).attr('data-contentsel');
+            // Verify that the content is defined.
+            if (contentsel) {
+                // Show content using content selector found in path attribute.
+                $('.solutions-svg-list div#'+contentsel).addClass('active');
+                // Hide main content.
+                $('.solutions-svg-content').addClass('hidden');
+            }
+        }
+        function hideNodeContent() {
+            // Show content using content selector found in path attribute.
+            $('.solutions-svg-list div').removeClass('active');
+            // Show main content.
+            $('.solutions-svg-content').removeClass('hidden');
+
+        }
+        $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").hover(showNodeContent, hideNodeContent);
+        $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").focusin(showNodeContent);
+        $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").focusout(hideNodeContent);
 
     };
 

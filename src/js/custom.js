@@ -161,11 +161,14 @@ jQuery(document).ready(function($) {
         */
         function showNodeContent() {
             // Grab data-contentsel to use to find content to show.
-            var contentsel = '#'+$(this).attr('data-contentsel');
-            // Show content using content selector found in path attribute.
-            $('.solutions-svg-list div'+contentsel).addClass('active');
-            // Hide main content.
-            $('.solutions-svg-content').addClass('hidden');
+            var contentsel = $(this).attr('data-contentsel');
+            // Verify that the content is defined.
+            if (contentsel) {
+                // Show content using content selector found in path attribute.
+                $('.solutions-svg-list div#'+contentsel).addClass('active');
+                // Hide main content.
+                $('.solutions-svg-content').addClass('hidden');
+            }
         }
         function hideNodeContent() {
             // Show content using content selector found in path attribute.
