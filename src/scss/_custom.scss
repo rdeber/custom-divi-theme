@@ -143,6 +143,10 @@
 //solutions svg content styles
 .solutions-svg-content {
 
+	&.hidden {
+		display: none;
+	}
+
 	a {
 		font-weight: 600;
 		color: $rl-gray-700;

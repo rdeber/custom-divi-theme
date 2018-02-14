@@ -149,27 +149,28 @@ jQuery(document).ready(function($) {
         testscale.animate({transform: 's1.5,1.5' }, 500);
 
         //show/hide individual solutions text
-        $(".cls-2").hover(function () {
+        $(".cls-2").bind('hover focus', function() {
             $('.solutions-svg-list div').filter('[data-solution="access"]').toggleClass('active');
+            $('.solutions-svg-content').toggleClass('hidden');
         });
-        $(".cls-3").hover(function () {
+        $('.cls-3').bind('hover focus', function() {
             $('.solutions-svg-list div').filter('[data-solution="retention"]').toggleClass('active');
+            $('.solutions-svg-content').toggleClass('hidden');
         });
-
 
     };
 
     //add hover classes for svg content links
-    $(".solutions-svg-btn-1").hover(function () {
+    $(".solutions-svg-btn-1").bind('hover focus', function() {
         $("#solutions-svg").toggleClass("group-1-active");
     });
-    $(".solutions-svg-btn-2").hover(function () {
+    $(".solutions-svg-btn-2").bind('hover focus', function() {
         $("#solutions-svg").toggleClass("group-2-active");
     });
-    $(".solutions-svg-btn-3").hover(function () {
+    $(".solutions-svg-btn-3").bind('hover focus', function() {
         $("#solutions-svg").toggleClass("group-3-active");
     });
-    $(".solutions-svg-btn-4").hover(function () {
+    $(".solutions-svg-btn-4").bind('hover focus', function() {
         $("#solutions-svg").toggleClass("lines-active");
     });
 
