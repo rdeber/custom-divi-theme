@@ -144,9 +144,29 @@ jQuery(document).ready(function($) {
     function onSVGLoaded(svg){
         s.append(svg);
 
-        //testing snapsvg animation
-        testscale = s.select(".cls-1");
-        testscale.animate({transform: 's1.5,1.5' }, 500);
+        //snapsvg hover scale test
+        //works on an array of elements with specific class
+        //wasn't working with data attr for some reason...
+        function scaleNode() {
+            testscale = s.selectAll(".cls-1");
+            testscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
+        }
+        function shrinkNode() {
+            testscale.animate({transform: 's1,1' }, 0, mina.easeinout);
+        }
+        $(".circles-1 path").hover(scaleNode, shrinkNode);
+
+        //another snapsvg hover scale test
+        //works on 1 individual orange dot with specific class
+        //wasn't working with data attr for some reason...
+        function scaleNode2() {
+            orangedot1 = s.select('.item18');
+            orangedot1.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
+        }
+        function shrinkNode2() {
+            orangedot1.animate({transform: 's1,1' }, 0, mina.easeinout);
+        }
+        $('.item18').hover(scaleNode2, shrinkNode2);
 
         //show/hide individual solutions text
         /*
@@ -171,7 +191,7 @@ jQuery(document).ready(function($) {
             }
         }
         function hideNodeContent() {
-            // Show content using content selector found in path attribute.
+            // Hide content using content selector found in path attribute.
             $('.solutions-svg-list div').removeClass('active');
             // Show main content.
             $('.solutions-svg-content').removeClass('hidden');
@@ -181,21 +201,52 @@ jQuery(document).ready(function($) {
         $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").focusin(showNodeContent);
         $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").focusout(hideNodeContent);
 
-    };
+        //handle svg content links filtering
+        function activateGroup1() {
+            group1 = s.selectAll(".cls-1");
+            group1.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
+            $("#solutions-svg").addClass("group-1-active");
+        }
+        function deactivateGroup1() {
+            group1.animate({transform: 's1,1' }, 0, mina.easeinout);
+            $("#solutions-svg").removeClass("group-1-active");
+        }
+        $(".solutions-svg-btn-1").hover(activateGroup1, deactivateGroup1);
 
-    //add hover classes for svg content links
-    $(".solutions-svg-btn-1").bind('hover focus', function() {
-        $("#solutions-svg").toggleClass("group-1-active");
-    });
-    $(".solutions-svg-btn-2").bind('hover focus', function() {
-        $("#solutions-svg").toggleClass("group-2-active");
-    });
-    $(".solutions-svg-btn-3").bind('hover focus', function() {
-        $("#solutions-svg").toggleClass("group-3-active");
-    });
-    $(".solutions-svg-btn-4").bind('hover focus', function() {
-        $("#solutions-svg").toggleClass("lines-active");
-    });
+        function activateGroup2() {
+            group2 = s.selectAll(".cls-2");
+            group2.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
+            $("#solutions-svg").addClass("group-2-active");
+        }
+        function deactivateGroup2() {
+            group2.animate({transform: 's1,1' }, 0, mina.easeinout);
+            $("#solutions-svg").removeClass("group-2-active");
+        }
+        $(".solutions-svg-btn-2").hover(activateGroup2, deactivateGroup2);
+
+        function activateGroup3() {
+            group3 = s.selectAll(".cls-3");
+            group3.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
+            $("#solutions-svg").addClass("group-3-active");
+        }
+        function deactivateGroup3() {
+            group3.animate({transform: 's1,1' }, 0, mina.easeinout);
+            $("#solutions-svg").removeClass("group-3-active");
+        }
+        $(".solutions-svg-btn-3").hover(activateGroup3, deactivateGroup3);
+
+        function activateGroup4() {
+            group4 = s.selectAll(".lines");
+            group4.animate({transform: 's1.025,1.025' }, 0, mina.easeinout);
+            $("#solutions-svg").addClass("group-4-active");
+        }
+        function deactivateGroup4() {
+            group4.animate({transform: 's1,1' }, 0, mina.easeinout);
+            $("#solutions-svg").removeClass("group-4-active");
+        }
+        $(".solutions-svg-btn-4").hover(activateGroup4, deactivateGroup4);
+
+    };
 
 });
 
