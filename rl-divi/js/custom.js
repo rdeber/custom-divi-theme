@@ -210,12 +210,13 @@ jQuery(document).ready(function($) {
 
         //handle svg content links filtering
         function activateGroup1() {
-            group1 = s.selectAll(".cls-1");
+            var group1 = s.selectAll(".cls-1");
             group1.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-1-active");
             clearAutoPlay();
         }
         function deactivateGroup1() {
+            var group1 = s.selectAll(".cls-1");
             group1.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-1-active");
             clearAutoPlay();
@@ -223,12 +224,13 @@ jQuery(document).ready(function($) {
         $(".solutions-svg-btn-1").hover(activateGroup1, deactivateGroup1);
 
         function activateGroup2() {
-            group2 = s.selectAll(".cls-2");
+            var group2 = s.selectAll(".cls-2");
             group2.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-2-active");
             clearAutoPlay();
         }
         function deactivateGroup2() {
+            var group2 = s.selectAll(".cls-2");
             group2.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-2-active");
             clearAutoPlay();
@@ -236,12 +238,13 @@ jQuery(document).ready(function($) {
         $(".solutions-svg-btn-2").hover(activateGroup2, deactivateGroup2);
 
         function activateGroup3() {
-            group3 = s.selectAll(".cls-3");
+            var group3 = s.selectAll(".cls-3");
             group3.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-3-active");
             clearAutoPlay();
         }
         function deactivateGroup3() {
+            var group3 = s.selectAll(".cls-3");
             group3.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-3-active");
             clearAutoPlay();
@@ -249,12 +252,13 @@ jQuery(document).ready(function($) {
         $(".solutions-svg-btn-3").hover(activateGroup3, deactivateGroup3);
 
         function activateGroup4() {
-            group4 = s.selectAll(".lines");
+            var group4 = s.selectAll(".lines");
             group4.animate({transform: 's1.025,1.025' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-4-active");
             clearAutoPlay();
         }
         function deactivateGroup4() {
+            var group4 = s.selectAll(".lines");
             group4.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-4-active");
             clearAutoPlay();
