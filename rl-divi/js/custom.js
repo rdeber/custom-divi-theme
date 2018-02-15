@@ -207,6 +207,7 @@ jQuery(document).ready(function($) {
         function deactivateGroup1() {
             group1.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-1-active");
+            clearAutoPlay();
         }
         $(".solutions-svg-btn-1").hover(activateGroup1, deactivateGroup1);
 
@@ -219,6 +220,7 @@ jQuery(document).ready(function($) {
         function deactivateGroup2() {
             group2.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-2-active");
+            clearAutoPlay();
         }
         $(".solutions-svg-btn-2").hover(activateGroup2, deactivateGroup2);
 
@@ -231,6 +233,7 @@ jQuery(document).ready(function($) {
         function deactivateGroup3() {
             group3.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-3-active");
+            clearAutoPlay();
         }
         $(".solutions-svg-btn-3").hover(activateGroup3, deactivateGroup3);
 
@@ -243,6 +246,7 @@ jQuery(document).ready(function($) {
         function deactivateGroup4() {
             group4.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-4-active");
+            clearAutoPlay();
         }
         $(".solutions-svg-btn-4").hover(activateGroup4, deactivateGroup4);
 
