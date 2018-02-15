@@ -187,6 +187,7 @@ jQuery(document).ready(function($) {
             if (contentsel) {
                 clearTimeout(hideTimeout);
                 // Show content using content selector found in path attribute.
+                $('.solutions-svg-list div.active').removeClass('active');
                 $('.solutions-svg-list div#'+contentsel).addClass('active');
                 // Hide main content.
                 $('.solutions-svg-content').addClass('hidden');
