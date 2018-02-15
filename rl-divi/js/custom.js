@@ -144,12 +144,33 @@ jQuery(document).ready(function($) {
     function onSVGLoaded(svg){
         s.append(svg);
 
+        //snapsvg hover scale test
+        //works on an array of elements with specific class
+        //wasn't working with data attr for some reason...
+        /*
+        function scaleNode() {
+            var dotSel = $(this).attr('id');
+            if (dotSel) {
+                var dotscale = s.select('#'+dotSel);
+                dotscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
+            }
+        }
+        function shrinkNode() {
+            var dotSel = $(this).attr('id');
+            if (dotSel) {
+                var dotscale = s.select('#'+dotSel);
+                dotscale.animate({transform: 's1,1' }, 0, mina.easeinout);
+            }
+        }
+        $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").hover(scaleNode, shrinkNode);
+        */
+
         var hideTimeout;
         function showNodeContent() {
             var dotSel = $(this).attr('id');
             if (dotSel) {
-                testscale = s.select('#'+dotSel);
-                testscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
+                var dotscale = s.select('#'+dotSel);
+                dotscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
             }
             // Grab data-contentsel to use to find content to show.
             var contentsel = $(this).attr('data-contentsel');
@@ -169,6 +190,11 @@ jQuery(document).ready(function($) {
             }
         }
         function hideNodeContent() {
+            var dotSel = $(this).attr('id');
+            if (dotSel) {
+                var dotscale = s.select('#'+dotSel);
+                dotscale.animate({transform: 's1,1' }, 0, mina.easeinout);
+            }
             clearTimeout(hideTimeout);
             hideTimeout = setTimeout(function() {
                 // Hide content using content selector found in path attribute.
