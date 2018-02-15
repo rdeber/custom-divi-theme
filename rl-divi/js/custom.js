@@ -148,13 +148,14 @@ jQuery(document).ready(function($) {
         //works on an array of elements with specific class
         //wasn't working with data attr for some reason...
         function scaleNode() {
-            testscale = s.selectAll(".cls-1");
+            var dotSel = '#'+$(this).attr('id');
+            testscale = s.select(dotSel);
             testscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
         }
         function shrinkNode() {
             testscale.animate({transform: 's1,1' }, 0, mina.easeinout);
         }
-        $(".circles-1 path").hover(scaleNode, shrinkNode);
+        $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").hover(scaleNode, shrinkNode);
 
         //another snapsvg hover scale test
         //works on 1 individual orange dot with specific class
