@@ -147,7 +147,6 @@ jQuery(document).ready(function($) {
         //snapsvg hover scale test
         //works on an array of elements with specific class
         //wasn't working with data attr for some reason...
-        /*
         function scaleNode() {
             var dotSel = $(this).attr('id');
             if (dotSel) {
@@ -163,7 +162,6 @@ jQuery(document).ready(function($) {
             }
         }
         $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").hover(scaleNode, shrinkNode);
-        */
 
         var hideTimeout;
         function showNodeContent() {
