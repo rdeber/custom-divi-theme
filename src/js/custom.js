@@ -148,40 +148,28 @@ jQuery(document).ready(function($) {
         //works on an array of elements with specific class
         //wasn't working with data attr for some reason...
         function scaleNode() {
-            var dotSel = '#'+$(this).attr('id');
-            testscale = s.select(dotSel);
-            testscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
+            var dotSel = $(this).attr('id');
+            if (dotSel) {
+                var dotscale = s.select('#'+dotSel);
+                dotscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
+            }
         }
         function shrinkNode() {
-            testscale.animate({transform: 's1,1' }, 0, mina.easeinout);
+            var dotSel = $(this).attr('id');
+            if (dotSel) {
+                var dotscale = s.select('#'+dotSel);
+                dotscale.animate({transform: 's1,1' }, 0, mina.easeinout);
+            }
         }
         $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").hover(scaleNode, shrinkNode);
 
-        //another snapsvg hover scale test
-        //works on 1 individual orange dot with specific class
-        //wasn't working with data attr for some reason...
-        function scaleNode2() {
-            orangedot1 = s.select('.item18');
-            orangedot1.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
-        }
-        function shrinkNode2() {
-            orangedot1.animate({transform: 's1,1' }, 0, mina.easeinout);
-        }
-        $('.item18').hover(scaleNode2, shrinkNode2);
-
-        //show/hide individual solutions text
-        /*
-        $(".cls-2").bind('hover focus', function() {
-            $('.solutions-svg-list div').filter('[data-solution="access"]').toggleClass('active');
-            $('.solutions-svg-content').toggleClass('hidden');
-        });
-        $('.cls-3').bind('hover focus', function() {
-            $('.solutions-svg-list div').filter('[data-solution="retention"]').toggleClass('active');
-            $('.solutions-svg-content').toggleClass('hidden');
-        });
-        */
         var hideTimeout;
         function showNodeContent() {
+            var dotSel = $(this).attr('id');
+            if (dotSel) {
+                testscale = s.select('#'+dotSel);
+                testscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
+            }
             // Grab data-contentsel to use to find content to show.
             var contentsel = $(this).attr('data-contentsel');
             // Verify that the content is defined.
@@ -192,6 +180,7 @@ jQuery(document).ready(function($) {
                 $('.solutions-svg-list div#'+contentsel).addClass('active');
                 // Hide main content.
                 $('.solutions-svg-content').addClass('hidden');
+                clearAutoPlay();
             }
         }
         function hideNodeContent() {
@@ -213,6 +202,7 @@ jQuery(document).ready(function($) {
             group1 = s.selectAll(".cls-1");
             group1.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-1-active");
+            clearAutoPlay();
         }
         function deactivateGroup1() {
             group1.animate({transform: 's1,1' }, 0, mina.easeinout);
@@ -224,6 +214,7 @@ jQuery(document).ready(function($) {
             group2 = s.selectAll(".cls-2");
             group2.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-2-active");
+            clearAutoPlay();
         }
         function deactivateGroup2() {
             group2.animate({transform: 's1,1' }, 0, mina.easeinout);
@@ -235,6 +226,7 @@ jQuery(document).ready(function($) {
             group3 = s.selectAll(".cls-3");
             group3.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-3-active");
+            clearAutoPlay();
         }
         function deactivateGroup3() {
             group3.animate({transform: 's1,1' }, 0, mina.easeinout);
@@ -246,6 +238,7 @@ jQuery(document).ready(function($) {
             group4 = s.selectAll(".lines");
             group4.animate({transform: 's1.025,1.025' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-4-active");
+            clearAutoPlay();
         }
         function deactivateGroup4() {
             group4.animate({transform: 's1,1' }, 0, mina.easeinout);
@@ -253,6 +246,54 @@ jQuery(document).ready(function($) {
         }
         $(".solutions-svg-btn-4").hover(activateGroup4, deactivateGroup4);
 
+        var count = 1;
+        var graphicAutoPlayInPause = 3000;
+        var graphicAutoPlayOutPause = 2000;
+        var graphicAutoPlayIn;
+        var graphicAutoPlayOut;
+        function startAutoPlay(initialDelay) {
+            if (!initialDelay) {
+                initialDelay = 0;
+            }
+            graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause+initialDelay);
+        }
+        function clearAutoPlay() {
+            clearTimeout(graphicAutoPlayIn);
+            clearTimeout(graphicAutoPlayOut);
+        }
+        function handleGraphicAutoPlay() {
+            if (count == 1) {
+                activateGroup1();
+                graphicAutoPlayOut = setTimeout(function() {
+                    deactivateGroup1();
+                    graphicAutoPlayInPause = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                }, graphicAutoPlayOutPause);
+            } else if (count == 2) {
+                activateGroup2();
+                graphicAutoPlayOut = setTimeout(function() {
+                    deactivateGroup2();
+                    graphicAutoPlayInPause = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                }, graphicAutoPlayOutPause);
+            } else if (count == 3) {
+                activateGroup3();
+                graphicAutoPlayOut = setTimeout(function() {
+                    deactivateGroup3();
+                    graphicAutoPlayInPause = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                }, graphicAutoPlayOutPause);
+            } else if (count == 4) {
+                activateGroup4();
+                graphicAutoPlayOut = setTimeout(function() {
+                    deactivateGroup4();
+                    graphicAutoPlayInPause = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                }, graphicAutoPlayOutPause);
+            }
+            count++;
+            if (count > 4) {
+                count = 1;
+            }
+        }
+        // TODO: delay starting until scrolled in to view...
+        startAutoPlay(5000);
     };
 
 });
