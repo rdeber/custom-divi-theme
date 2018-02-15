@@ -179,11 +179,13 @@ jQuery(document).ready(function($) {
             $('.solutions-svg-content').toggleClass('hidden');
         });
         */
+        var hideTimeout;
         function showNodeContent() {
             // Grab data-contentsel to use to find content to show.
             var contentsel = $(this).attr('data-contentsel');
             // Verify that the content is defined.
             if (contentsel) {
+                clearTimeout(hideTimeout);
                 // Show content using content selector found in path attribute.
                 $('.solutions-svg-list div#'+contentsel).addClass('active');
                 // Hide main content.
@@ -191,10 +193,13 @@ jQuery(document).ready(function($) {
             }
         }
         function hideNodeContent() {
-            // Hide content using content selector found in path attribute.
-            $('.solutions-svg-list div').removeClass('active');
-            // Show main content.
-            $('.solutions-svg-content').removeClass('hidden');
+            clearTimeout(hideTimeout);
+            hideTimeout = setTimeout(function() {
+                // Hide content using content selector found in path attribute.
+                $('.solutions-svg-list div').removeClass('active');
+                // Show main content.
+                $('.solutions-svg-content').removeClass('hidden');
+            }, 1000);
 
         }
         $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").hover(showNodeContent, hideNodeContent);
