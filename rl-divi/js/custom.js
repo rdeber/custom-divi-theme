@@ -270,25 +270,25 @@ jQuery(document).ready(function($) {
                 activateGroup1();
                 graphicAutoPlayOut = setTimeout(function() {
                     deactivateGroup1();
-                    graphicAutoPlayInPause = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                    graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
                 }, graphicAutoPlayOutPause);
             } else if (count == 2) {
                 activateGroup2();
                 graphicAutoPlayOut = setTimeout(function() {
                     deactivateGroup2();
-                    graphicAutoPlayInPause = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                    graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
                 }, graphicAutoPlayOutPause);
             } else if (count == 3) {
                 activateGroup3();
                 graphicAutoPlayOut = setTimeout(function() {
                     deactivateGroup3();
-                    graphicAutoPlayInPause = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                    graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
                 }, graphicAutoPlayOutPause);
             } else if (count == 4) {
                 activateGroup4();
                 graphicAutoPlayOut = setTimeout(function() {
                     deactivateGroup4();
-                    graphicAutoPlayInPause = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                    graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
                 }, graphicAutoPlayOutPause);
             }
             count++;
