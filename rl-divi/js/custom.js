@@ -125,6 +125,13 @@ jQuery(document).ready(function($) {
       }
     });
 
+    //initialize slick slider for solutions section on mobile devices only
+    $('.et_mobile_device .solutions-svg-list').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
+
     //initialize tooltips in enhanced slick slider
     $('.hasTooltip').each(function() {
         $(this).qtip({
@@ -213,59 +220,75 @@ jQuery(document).ready(function($) {
         //handle svg content links filtering
         function activateGroup1() {
             var group1 = s.selectAll(".cls-1");
-            group1.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
+            group1.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-1-active");
+            $(".solutions-svg-btn-1").addClass("active");
             clearAutoPlay();
         }
         function deactivateGroup1() {
             var group1 = s.selectAll(".cls-1");
             group1.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-1-active");
+            $(".solutions-svg-btn-1").removeClass("active");
             clearAutoPlay();
         }
         $(".solutions-svg-btn-1").hover(activateGroup1, deactivateGroup1);
+        $(".solutions-svg-btn-1").focusin(activateGroup1);
+        $(".solutions-svg-btn-1").focusout(deactivateGroup1);
 
         function activateGroup2() {
             var group2 = s.selectAll(".cls-2");
-            group2.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
+            group2.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-2-active");
+            $(".solutions-svg-btn-2").addClass("active");
             clearAutoPlay();
         }
         function deactivateGroup2() {
             var group2 = s.selectAll(".cls-2");
             group2.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-2-active");
+            $(".solutions-svg-btn-2").removeClass("active");
             clearAutoPlay();
         }
         $(".solutions-svg-btn-2").hover(activateGroup2, deactivateGroup2);
+        $(".solutions-svg-btn-2").focusin(activateGroup2);
+        $(".solutions-svg-btn-2").focusout(deactivateGroup2);
 
         function activateGroup3() {
             var group3 = s.selectAll(".cls-3");
-            group3.animate({transform: 's1.05,1.05' }, 0, mina.easeinout);
+            group3.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-3-active");
+            $(".solutions-svg-btn-3").addClass("active");
             clearAutoPlay();
         }
         function deactivateGroup3() {
             var group3 = s.selectAll(".cls-3");
             group3.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-3-active");
+            $(".solutions-svg-btn-3").removeClass("active");
             clearAutoPlay();
         }
         $(".solutions-svg-btn-3").hover(activateGroup3, deactivateGroup3);
+        $(".solutions-svg-btn-3").focusin(activateGroup3);
+        $(".solutions-svg-btn-3").focusout(deactivateGroup3);
 
         function activateGroup4() {
             var group4 = s.selectAll(".lines");
-            group4.animate({transform: 's1.025,1.025' }, 0, mina.easeinout);
+            group4.animate({transform: 's.95,.95' }, 0, mina.easeinout);
             $("#solutions-svg").addClass("group-4-active");
+            $(".solutions-svg-btn-4").addClass("active");
             clearAutoPlay();
         }
         function deactivateGroup4() {
             var group4 = s.selectAll(".lines");
             group4.animate({transform: 's1,1' }, 0, mina.easeinout);
             $("#solutions-svg").removeClass("group-4-active");
+            $(".solutions-svg-btn-4").removeClass("active");
             clearAutoPlay();
         }
         $(".solutions-svg-btn-4").hover(activateGroup4, deactivateGroup4);
+        $(".solutions-svg-btn-4").focusin(activateGroup4);
+        $(".solutions-svg-btn-4").focusout(deactivateGroup4);
 
         var count = 1;
         var graphicAutoPlayInPause = 3000;
@@ -314,7 +337,7 @@ jQuery(document).ready(function($) {
             }
         }
         // TODO: delay starting until scrolled in to view...
-        startAutoPlay(5000);
+        startAutoPlay(1000);
     };
 
 });

@@ -32,6 +32,9 @@
 
 	<?php wp_head(); ?>
 
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/4.7.0/js/v4-shims.js"></script>
+
 </head>
 <body <?php body_class(); ?>>
 

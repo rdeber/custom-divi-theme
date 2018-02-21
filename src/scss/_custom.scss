@@ -49,16 +49,22 @@
 
 .home-solutions {
 
-	@include breakpoint(tablet) {
+	@include breakpoint(phone) {
 		.et_pb_row {
 			display: flex;
 			padding: 0;
 
 			.et_pb_column {
-				margin: auto;
+				// need important here to override theme default
+				margin: auto !important;
 
-				&.et-last-child {
-					margin-top: 0;
+				&.solutions-content-container {
+					// need important here to override theme default
+					margin-top: 1rem !important;
+					order: 2;
+				}
+				&.solutions-svg-container {
+					order: 1;
 				}
 			}
 		}
@@ -73,6 +79,150 @@
 	}
 }
 
+//solutions specific variables (set colors here)
+$solutions-color1: $rl-gray-600;
+$solutions-color2: $rl-blue-600;
+$solutions-color3: $rl-teal-600;
+$solutions-color4: $rl-gray-300;
+
+//page layout for solutions section
+.solutions-container {
+
+	// only apply these styles to non mobile devices
+	body:not(.et_mobile_device) & {
+		display: flex;
+		perspective: 1000px;
+
+		.solutions-text-container {
+			margin: 1rem auto auto 3rem;
+			width: 50%;
+			flex: 1;
+			order: 2;
+
+			h2 {
+				font-size: 3rem;
+			}
+		}
+		.solutions-svg-container {
+			margin: auto;
+			width: 50%;
+			flex: 1;
+		}
+	}
+}
+
+//solutions svg content styles
+.solutions-svg-content {
+	transition: all 250ms ease-in-out;
+
+	// only apply these styles to non mobile devices
+	body:not(.et_mobile_device) & {
+		position: absolute;
+		opacity: 1;
+
+		&.hidden {
+			visibility: hidden;
+			opacity: 0;
+		}
+	}
+
+	a {
+		font-weight: normal;
+		color: #555;
+		border-bottom: 2px dashed #ddd;
+		transition: all 250ms ease-in-out;
+
+		&.solutions-svg-btn-1 {
+			border-color: $solutions-color1;
+		}
+		&.solutions-svg-btn-2 {
+			border-color: $solutions-color2;
+		}
+		&.solutions-svg-btn-3 {
+			border-color: $solutions-color3;
+		}
+		&.solutions-svg-btn-4 {
+			border-color: $solutions-color4;
+		}
+
+		&:hover,
+		&:focus,
+		&.active {
+			color: #fff;
+
+			&.solutions-svg-btn-1 {
+				background: $solutions-color1;
+			}
+			&.solutions-svg-btn-2 {
+				background: $solutions-color2;
+			}
+			&.solutions-svg-btn-3 {
+				background: $solutions-color3;
+			}
+			&.solutions-svg-btn-4 {
+				background: $solutions-color4;
+				color: #111;
+			}
+		}
+	}
+}
+
+//show/hide individual solutions
+.solutions-svg-list {
+	// only apply these styles to non mobile devices
+	body:not(.et_mobile_device) & {
+		> div {
+			position: absolute;
+			visibility: hidden;
+			margin-top: 1rem;
+			z-index: 1;
+			display: flex;
+			will-change: transform, opacity;
+			animation: hover-out .4s 1 cubic-bezier(0.7, 0, 0.3, 1);
+			transition: all 250ms ease-in-out;
+
+			.svg-inline--fa {
+				font-size: 5rem;
+				margin-right: 1rem;
+
+				path {
+					fill: $rl-blue-600;
+				}
+			}
+
+			h4 {
+				font-size: 1.75rem;
+			}
+
+			&.active {
+				visibility: visible;
+				z-index: 2;
+				animation: hover-in .4s 1 cubic-bezier(0.7, 0, 0.3, 1);
+			}
+		}
+	}
+}
+
+@keyframes hover-in {
+    0%   {
+		transform: translateX(-75px) rotateX(25deg) scale(.95);
+		opacity: 0;
+	}
+    100% {
+		transform: translateX(0) rotateX(0) scale(1);
+		opacity: 1;
+	}
+}
+@keyframes hover-out {
+    0%   {
+		transform: translateX(0) rotateX(0) scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(150px) rotateX(25deg) scale(.95);
+		opacity: 0;
+	}
+}
 
 //solutions svg graphic styles
 #solutions-svg {
@@ -80,21 +230,25 @@
 	width: 100%;
 	min-height: 75vh;
 
+	//hide svg on mobile devices
+	.et_mobile_device & {
+		display: none;
+	}
+
 	path {
 		transition: all 250ms ease-in-out;
 	}
-
-	.lines path {
-		fill: $rl-gray-300;
-	}
 	.circles-1 path {
-		fill: $rl-blue-900;
+		fill: $solutions-color1;
 	}
 	.circles-2 path {
-		fill: $rl-blue-600;
+		fill: $solutions-color2;
 	}
 	.circles-3 path {
-		fill: $rl-orange-600;
+		fill: $solutions-color3;
+	}
+	.lines path {
+		fill: $solutions-color4;
 	}
 	.icons path {
 		fill: #fff;
@@ -129,67 +283,7 @@
 			fill-opacity: 0;
 		}
 		path.lines {
-			fill: $rl-gray-400;
-		}
-	}
-}
-
-//solutions svg content styles
-.solutions-svg-content {
-
-	&.hidden {
-		display: none;
-	}
-
-	a {
-		font-weight: normal;
-		color: #555;
-		border-bottom: 2px dashed #ddd;
-		transition: all .15s cubic-bezier(.33,.66,.66,1);
-
-		&.solutions-svg-btn-1 {
-			border-color: $rl-blue-300;
-		}
-		&.solutions-svg-btn-2 {
-			border-color: $rl-blue-400;
-		}
-		&.solutions-svg-btn-3 {
-			border-color: $rl-orange-300;
-		}
-		&.solutions-svg-btn-4 {
-			border-color: $rl-gray-400;
-		}
-
-		&:hover,
-		&:focus {
-			color: #fff;
-
-			&.solutions-svg-btn-1 {
-				background: $rl-blue-400;
-			}
-			&.solutions-svg-btn-2 {
-				background: $rl-blue-600;
-			}
-			&.solutions-svg-btn-3 {
-				background: $rl-orange-500;
-			}
-			&.solutions-svg-btn-4 {
-				background: $rl-gray-600;
-			}
-		}
-	}
-}
-
-//show/hide individual solutions
-.solutions-svg-list {
-	> div {
-		position: absolute;
-		visibility: hidden;
-		z-index: 1;
-
-		&.active {
-			visibility: visible;
-			z-index: 2;
+			fill: $rl-gray-500;
 		}
 	}
 }
