@@ -151,26 +151,9 @@ jQuery(document).ready(function($) {
     function onSVGLoaded(svg){
         s.append(svg);
 
-        //snapsvg hover scale test
-        //works on an array of elements with specific class
-        //wasn't working with data attr for some reason...
-        /*
-        function scaleNode() {
-            var dotSel = $(this).attr('id');
-            if (dotSel) {
-                var dotscale = s.select('#'+dotSel);
-                dotscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
-            }
-        }
-        function shrinkNode() {
-            var dotSel = $(this).attr('id');
-            if (dotSel) {
-                var dotscale = s.select('#'+dotSel);
-                dotscale.animate({transform: 's1,1' }, 0, mina.easeinout);
-            }
-        }
-        $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").hover(scaleNode, shrinkNode);
-        */
+        // Set default path colors
+        var icons = s.selectAll('.cls-4');
+        icons.attr({fill: '#ffffff', fillOpacity: '0.75'});
 
         var hideTimeout;
         function showNodeContent() {
@@ -183,13 +166,16 @@ jQuery(document).ready(function($) {
             var dotSel = $(this).attr('id');
             if (dotSel) {
                 var dotscale = s.select('#'+dotSel);
-                dotscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
+                dotscale.animate({transform: 's1.25,1.25' }, 0, mina.easeinout);
             }
-            // Scale icon.
+            // Scale individual icon.
             var iconSel = $(this).attr('data-icon');
             if (iconSel) {
                 var iconscale = s.select('#'+iconSel);
-                iconscale.animate({transform: 's1.1,1.1' }, 0, mina.easeinout);
+                iconscale.animate({
+                    fillOpacity:"1",
+                    transform: 's1.25,1.25'
+                }, 0, mina.easeinout);
             }
             // Grab data-contentsel to use to find content to show.
             var contentsel = $(this).attr('data-contentsel');
@@ -213,7 +199,10 @@ jQuery(document).ready(function($) {
             var iconSel = $(this).attr('data-icon');
             if (iconSel) {
                 var iconscale = s.select('#'+iconSel);
-                iconscale.animate({transform: 's1,1' }, 0, mina.easeinout);
+                iconscale.animate({
+                    fillOpacity:"0.75",
+                    transform: 's1,1'
+                }, 0, mina.easeinout);
             }
             clearTimeout(hideTimeout);
             hideTimeout = setTimeout(function() {
