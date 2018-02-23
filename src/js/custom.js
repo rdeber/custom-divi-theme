@@ -125,13 +125,6 @@ jQuery(document).ready(function($) {
       }
     });
 
-    //initialize slick slider for solutions section on mobile devices only
-    $('.et_mobile_device .solutions-svg-list').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    });
-
     //initialize tooltips in enhanced slick slider
     $('.hasTooltip').each(function() {
         $(this).qtip({
@@ -144,6 +137,37 @@ jQuery(document).ready(function($) {
         });
     });
 
+    //initialize and load gears svg
+    var g = Snap("#rl-gears-svg");
+    Snap.load("/wp-content/themes/rl-divi/images/svg/rl-gears.svg", onSVGLoaded2 );
+
+    function onSVGLoaded2(svg){
+        g.append(svg);
+
+
+        $('path.rl-gear').hover(function() {
+            $('path.rl-gear').each(function(i){
+                var gearToSpin = $(this);
+                setTimeout(function() {
+                gearToSpin.closest('path.rl-gear').toggleClass('spinning');
+                }, 200*i);
+            })
+        })
+
+        /*
+        function raysAnimation(){
+            var getGear = $(this).attr('id');
+            var gearspin = g.select('#'+getGear);
+            var bbox = gearspin.getBBox();
+
+            gearspin.animate({ transform: "r180," + bbox.cx + ',' + bbox.cy}, 2000);
+        }
+        $(".rl-gears path.rl-gear").hover(raysAnimation);
+        */
+    };
+
+
+
     //initialize and load solutions svg
     var s = Snap("#solutions-svg");
     Snap.load("/wp-content/themes/rl-divi/images/svg/rl-solutions-dots.svg", onSVGLoaded );
@@ -151,7 +175,7 @@ jQuery(document).ready(function($) {
     function onSVGLoaded(svg){
         s.append(svg);
 
-        // Set default path colors
+        // Set default icon path colors
         var icons = s.selectAll('.cls-4');
         icons.attr({fill: '#ffffff', fillOpacity: '0.75'});
 

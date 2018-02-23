@@ -1,88 +1,140 @@
-//mockups - delete when done
-.home-welcome {
-	padding: 2rem 0 0 !important;
+.rl-gears path {
+    transform-origin: center;
+    fill: #52595b !important;
+    pointer-events: bounding-box;
+
+    &:hover,
+	&:focus,
+	&.spinning {
+    	-webkit-animation-play-state: running;
+		animation: gears-rotate 8s cubic-bezier(.57,.21,.69,3.25) infinite;
+    }
+}
+@keyframes gears-rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+// Homepage welcome section with gears svg
+.welcome-container {
+	padding: 2rem 0;
+	text-align: center;
 
 	@include breakpoint(tablet) {
-		.et_pb_row {
-			display: flex;
-			padding: 0;
+		padding: 3rem 0;
+	}
 
-			.et_pb_column {
-				margin: auto;
-			}
+	.et_pb_row {
+		padding: 0;
+	}
+
+	.scroll-down-btn {
+		color: $rl-gray-300;
+	}
+}
+.welcome-section {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+
+	@include breakpoint(tablet) {
+		text-align: left;
+	}
+
+	h2 {
+		font-size: 2rem;
+
+		@include breakpoint(tablet) {
+			font-size: 4vw;
 		}
-		.et_pb_code_inner svg {
-			display: flex;
+		@include breakpoint(laptop) {
+			font-size: 3.5vw;
 		}
 	}
 
-	.et_pb_text_inner {
-		h2 {
-			font-size: 3rem;
-		}
-		h2 + p {
-			font-size: 1.5rem;
-			font-weight: 300;
-		}
-		p {
-			font-size: 1.2rem;
-			line-height: 1.4;
-		}
+	p {
+		font-size: 1.5rem;
+		font-weight: 300;
+		line-height: 1.4;
+		margin-bottom: 1rem;
 	}
+
 	.et_pb_button {
-		color: #384042 !important;
-		background: #fff;
-		border-color: #EDF1F2;
+		display: block;
+		text-align: center;
+		margin-bottom: 1rem;
 
-		&:hover,
-		&:focus {
-			color: #384042 !important;
-			background: rgba(227,233,235,0.25) !important;
-			border-color: rgba(227,233,235,0.33) !important;
+		@include breakpoint(tablet) {
+			display: inline-block;
+			margin-bottom: 0;
 		}
+	}
 
-		& + .et_pb_button {
-			margin-left: .5rem;
+	.welcome-col1,
+	.welcome-col2 {
+		margin: auto;
+		width: 100%;
+		flex: 1 auto;
+	}
+	.welcome-col1 {
+		order: 2;
+	}
+
+	@include breakpoint(tablet) {
+		flex-direction: row;
+
+		.welcome-col1 {
+			padding-right: 5%;
+			width: 50%;
+			order: 1;
+		}
+		.welcome-col2 {
+			width: 50%;
+			order: 1;
 		}
 	}
 }
 
-.home-solutions {
 
-	@include breakpoint(phone) {
-		.et_pb_row {
-			display: flex;
-			padding: 0;
+#rl-gears-svg {
+	margin-bottom: 1rem;
 
-			.et_pb_column {
-				// need important here to override theme default
-				margin: auto !important;
-
-				&.solutions-content-container {
-					// need important here to override theme default
-					margin-top: 1rem !important;
-					order: 2;
-				}
-				&.solutions-svg-container {
-					order: 1;
-				}
-			}
-		}
-		.et_pb_code_inner svg {
-			display: flex;
-		}
+	@include breakpoint(phablet) {
+		margin-bottom: 0;
+		min-height: 250px;
 	}
-	.et_pb_code_inner {
-		h2 {
-			font-size: 3rem;
+
+	.rl-gears path {
+		fill: $rl-gray-600;
+		transform-origin: center;
+		transform-box: fill-box;
+		pointer-events: bounding-box;
+	}
+
+	.rl-gears-icons path {
+		pointer-events: none;
+
+		&.gear-blue {
+			fill: $rl-blue-500;
+		}
+		&.gear-darkblue {
+			fill: $rl-gray-500;
+		}
+		&.gear-teal {
+			fill: $rl-teal-500;
 		}
 	}
 }
+
 
 //solutions specific variables (set colors here)
 $solutions-color1: $rl-gray-600;
-$solutions-color2: $rl-blue-600;
-$solutions-color3: $rl-teal-600;
+$solutions-color2: $rl-blue-500;
+$solutions-color3: $rl-teal-500;
 $solutions-color4: $rl-gray-300;
 
 //page layout for solutions section
@@ -94,10 +146,13 @@ $solutions-color4: $rl-gray-300;
 		order: 2;
 
 		h2 {
-			font-size: 8vw;
+			font-size: 2rem;
 
-			@include breakpoint(phablet) {
-				font-size: 3.5vw;
+			@include breakpoint(tablet) {
+				font-size: 3rem;
+			}
+			@include breakpoint(laptop) {
+				font-size: 3.5rem;
 			}
 		}
 
@@ -208,14 +263,15 @@ $solutions-color4: $rl-gray-300;
 		.svg-inline--fa {
 			margin-right: .2rem;
 			font-size: 2rem;
+			height: 2rem;
+			width: 2rem;
+			padding: .5rem;
+			vertical-align: -.5rem;
 			background: #333;
 			border-radius: 50%;
-			padding: .5rem;
-			vertical-align: -.25em;
 
 			path {
 				color: #fff;
-				vertical-align: -.25em;
 			}
 
 		}
@@ -223,9 +279,14 @@ $solutions-color4: $rl-gray-300;
 		h4 {
 			display: inline-block;
 			font-size: 1.3rem;
+			color: $rl-gray-400;
+
+			@include breakpoint(tablet) {
+				font-size: 1.5rem;
+			}
 
 			@include breakpoint(laptop) {
-				font-size: 1.5rem;
+				font-size: 1.75rem;
 			}
 		}
 	}
@@ -238,23 +299,19 @@ $solutions-color4: $rl-gray-300;
 			margin-top: 1rem;
 			z-index: 1;
 			will-change: transform, opacity;
-			animation: hover-out .5s 1 cubic-bezier(0.7, 0, 0.3, 1);
+			animation: solution-hover-out .5s 1 cubic-bezier(0.7, 0, 0.3, 1);
 			transition: all .5s cubic-bezier(0.7, 0, 0.3, 1);
-
-			h4 {
-				font-size: 1.75rem;
-			}
 
 			&.active {
 				visibility: visible;
 				z-index: 2;
-				animation: hover-in .5s 1 cubic-bezier(0.7, 0, 0.3, 1);
+				animation: solution-hover-in .5s 1 cubic-bezier(0.7, 0, 0.3, 1);
 			}
 		}
 	}
 }
 
-@keyframes hover-in {
+@keyframes solution-hover-in {
     0%   {
 		transform: translateX(100px) rotateX(15deg) scale(.9);
 		opacity: 0;
@@ -269,7 +326,7 @@ $solutions-color4: $rl-gray-300;
 	}
 }
 
-@keyframes hover-out {
+@keyframes solution-hover-out {
     0%   {
 		transform: translateX(0) rotateX(0) scale(1);
 		opacity: 1;
@@ -3908,30 +3965,5 @@ body.et_pb_slide_menu_active {
 	}
 	100% {
 		transform: translateX(0);
-	}
-}
-
-
-
-////////////////////////////
-//svg animation experiments
-////////////////////////////
-.svg-gears path.gear {
-    transform-origin: center;
-    fill: #52595b !important;
-    pointer-events: bounding-box;
-
-    &:hover,
-    &:focus {
-    	-webkit-animation-play-state: running;
-        animation: svg-rotate 4s cubic-bezier(.57,.21,.69,3.25) infinite;
-    }
-}
-@keyframes svg-rotate {
-	from {
-		transform: rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg);
 	}
 }
