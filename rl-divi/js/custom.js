@@ -15,8 +15,6 @@ jQuery(document).ready(function($) {
       mainClass: 'mfp-fade'
     });
 
-    $('.slick-tile').attr('tabindex', '0');
-
     //equal height elements jquery
     $.fn.equalHeights = function(minHeight, maxHeight) {
         tallest = (minHeight) ? minHeight : 0;
@@ -69,6 +67,9 @@ jQuery(document).ready(function($) {
     //apply randomizer to slick tiles
     $('.slick-grid .slick-tile').shuffle();
 
+    //apply tabindex attr to slick tiles
+    $('.slick-tile').attr('tabindex', '0');
+
     //initialize slick slider for team wall
     $('.slick-grid-team').slick({
         infinite: true,
@@ -86,7 +87,9 @@ jQuery(document).ready(function($) {
         slidesToShow: 5,
         slidesToScroll: 5,
         touchThreshold: 5,
-        rows: 2
+        rows: 1,
+        prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button"></button>',
+        nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button"></button>'
     });
 
     //initialize slick slider for client logos
@@ -153,6 +156,7 @@ jQuery(document).ready(function($) {
                 }, 200*i);
             })
         })
+        $(this).closest('path.rl-gear').addClass('spinning');
 
         /*
         function raysAnimation(){

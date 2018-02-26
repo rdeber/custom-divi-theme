@@ -477,7 +477,7 @@ $solutions-color4: $rl-gray-300;
 		    	line-height: 1.75rem;
 		    	width: 1.75rem;
 		    	height: 1.75rem;
-		    	background: #ddd;
+		    	background: $rl-gray-300;
 		    	padding: .75rem;
 				border-radius: 50%;
 			    color: #fff;
@@ -1399,8 +1399,9 @@ $solutions-color4: $rl-gray-300;
 	&.slick-enhanced {
 		//top position = bottom padding of child element
 		top: 80px;
+
 		//negative top margin counters top posisition
-		margin-top: -90px;
+		//margin-top: -90px;
 
 		.slick-track {
 			//padding allows space for enlarged hover images
@@ -1435,25 +1436,27 @@ $solutions-color4: $rl-gray-300;
 }
 
 .slick-enhanced .slick-slide {
+	//positioning for parent elements
 	> div {
 		position: relative;
 
 		> div {
 			position: relative;
-
-			//desaturate image
-			> img {
-			    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /></filter></svg>#filter');
-			    filter: grayscale(100%); /* Standard CSS */
-			    -webkit-filter: grayscale(100%); /* CSS for Webkit Browsers */
-			    filter: url(/elements/grayscale.svg#desaturate); /* Firefox 4-34 */
-			    filter: gray;  /* Internet Explorer IE6-9 */
-			    -webkit-filter: grayscale(1); /* Old WebKit Browsers */
-			}
 		}
 	}
 
-	.slick-tile {
+	.slick-tile,
+	&.slick-tile {
+		//desaturate image
+		> img {
+			filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /></filter></svg>#filter');
+			filter: grayscale(100%); /* Standard CSS */
+			-webkit-filter: grayscale(100%); /* CSS for Webkit Browsers */
+			filter: url(/elements/grayscale.svg#desaturate); /* Firefox 4-34 */
+			filter: gray;  /* Internet Explorer IE6-9 */
+			-webkit-filter: grayscale(1); /* Old WebKit Browsers */
+		}
+
 		.slick-desciption {
 		    position: absolute;
 		    top: 0;
@@ -2822,6 +2825,8 @@ $solutions-color4: $rl-gray-300;
 
 body.home #particles-js {
 	display: block;
+	position: absolute;
+    z-index: 2;
 }
 
 #home-welcome {
@@ -3139,7 +3144,7 @@ body.home #particles-js {
 //What were up to blog section styles
 #what-were-up-to {
     text-align: left;
-    background: #fafafa;
+    background: #f5f5f5;
 
 	.et_pb_row {
 		padding-bottom: 0;
@@ -3191,9 +3196,12 @@ body.home #particles-js {
 
 		.et_pb_post {
 			//@include mdElevationElement('card');
-			box-shadow: inset 0 -4px 0 #333, 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+			box-shadow: inset 0 -4px 0 #333,
+					  rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+					  rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+					  rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
 			background: #fff;
-		    padding: 1rem 1rem 1rem 4rem;
+		    padding: 1rem;
 		    margin: .75rem 0 0;
 		    border-radius: 3px;
 		    border: none;
@@ -3211,42 +3219,61 @@ body.home #particles-js {
 			    padding: 0;
 			    font-size: .9rem;
 			    line-height: 1.2;
-			    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+				transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 		    }
 
 	    	.post-content {
 			    display: none;
 	    	}
 
+	    	.post-meta {
+				padding: 0;
+				margin: 0;
+			}
+
 	    	.post-meta,
 	    	.post-meta a {
 	    		color: #999;
-	    		transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+				transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+				display: none;
+
+				@include breakpoint(laptop) {
+					display: inline-block;
+				}
 	    	}
 
-		    &:after {
-		    	content: "";
-		    	font-family: "Fontawesome";
-		    	font-size: 2rem;
-		    	width: 2rem;
-		    	height: 2rem;
-		    	line-height: 0;
-		    	color: rgba(0,0,0,.25);
-		    	text-align: center;
-		    	display: block;
-		    	position: absolute;
-		    	top: 2rem;
-		    	left: 1rem;
-		    	visibility: visible;
-		    	transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+		    &:before {
+				content: "";
+				font-family: "Fontawesome";
+				font-size: 1.5rem;
+				width: 1.5rem;
+				height: 1.5rem;
+				line-height: 1rem;
+				margin-right: .5rem;
+				color: rgba(0, 0, 0, 0.25);
+				text-align: center;
+				float: left;
+				visibility: visible;
+				transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+				@include breakpoint(laptop) {
+					font-size: 2rem;
+					width: 2rem;
+					height: 2rem;
+					line-height: 2rem;
+					margin: 0 .75rem 2rem 0;
+				}
+
 		    }
 
 		    &:hover,
 		    &:focus {
 		        background: #f5f5f5;
 		        background-size: cover;
-		        box-shadow: inset 0 -4px 0 #333, 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-
+		        box-shadow: inset 0 -4px 0 #333,
+						  rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+						  rgba(0, 0, 0, 0.14) 0px 4px 5px 0px,
+						  rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 		        .entry-title {
 		        	color: rgba(255,255,255,.85);
 		        }
@@ -3258,12 +3285,8 @@ body.home #particles-js {
 		        	color: #fff;
 		        }
 
-			    &:after {
-			    	color: rgba(255,255,255,.5) !important;
-			    }
-
 			    &:before {
-			    	opacity: 1;
+			    	color: rgba(255,255,255,.5) !important;
 			    }
 		    }
 		}
@@ -3275,16 +3298,24 @@ body.home #particles-js {
     			background: #4881a9;
     		}
 		    .et_pb_post {
-		    	box-shadow: inset 0 -3px 0 #4881a9, 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-		    	&:after {
+				box-shadow: inset 0 -3px 0 #4881a9,
+						  rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+						  rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+						  rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+
+				&:before {
 		    	    content: "\f0eb";
 		    	    color: #4881a9;
 		    	}
 		    	&:hover,
 		    	&:focus {
 		    		background: #4881a9;
-		    		box-shadow: inset 0 -3px 0 darken(#4881a9,15%), 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-			    	&:after {
+					box-shadow: inset 0 -3px 0 darken(#4881a9,15%),
+							  rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+							  rgba(0, 0, 0, 0.14) 0px 4px 5px 0px,
+							  rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+
+					&:before {
 			    	    color: #4881a9;
 			    	}
 		    	}
@@ -3295,16 +3326,23 @@ body.home #particles-js {
     			background: #6bbbb6;
     		}
 		    .et_pb_post {
-		    	box-shadow: inset 0 -3px 0 #6bbbb6, 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-		    	&:after {
+		    	box-shadow: inset 0 -3px 0 #6bbbb6,
+						  rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+						  rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+						  rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+
+				&:before {
 		    	    content: "\f1ea";
 		    	    color: #6bbbb6;
 		    	}
 		    	&:hover,
 		    	&:focus {
 		    		background: #6bbbb6;
-		    		box-shadow: inset 0 -3px 0 darken(#6bbbb6,15%), 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-		    	}
+					box-shadow: inset 0 -3px 0 darken(#6bbbb6,15%),
+							  rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+							  rgba(0, 0, 0, 0.14) 0px 4px 5px 0px,
+						  	  rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+				}
 		    }
     	}
     	&:nth-of-type(3) {
@@ -3312,15 +3350,22 @@ body.home #particles-js {
     			background: #7e728e;
     		}
 		    .et_pb_post {
-		    	box-shadow: inset 0 -3px 0 #7e728e, 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-		    	&:after {
+				box-shadow: inset 0 -3px 0 #7e728e,
+						  rgba(0, 0, 0, 0.2) 0px 2px 1px -1px,
+					  	  rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+						  rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+
+		    	&:before {
 		    	    content: "\f0ac";
 		    	    color: #7e728e;
 		    	}
 		    	&:hover,
 		    	&:focus {
 		    		background: #7e728e;
-		    		box-shadow: inset 0 -3px 0 darken(#7e728e,15%), 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+					box-shadow: inset 0 -3px 0 darken(#7e728e,15%),
+							  rgba(0, 0, 0, 0.2) 0px 2px 4px -1px,
+							  rgba(0, 0, 0, 0.14) 0px 4px 5px 0px,
+							  rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 		    	}
 		    }
     	}
