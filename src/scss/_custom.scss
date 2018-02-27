@@ -2308,20 +2308,17 @@ $solutions-color4: $rl-gray-300;
 		.svg-inline--fa {
 			background: rgba(42, 48, 49, .85);
 			color: #4e86ad;
-			font-size: 2.25rem;
+			font-size: 3rem;
 			border-radius: 50%;
-			width: 4rem;
-			height: 4rem;
+			width: 3rem;
+			height: 3rem;
+			padding: .5rem;
 			margin-right: 1rem;
 			display: flex;
 			align-items: center;
 			&:before {
 				margin: auto;
 			}
-		}
-		//fix cubes icon alignment
-		li:nth-of-type(3) i:before {
-			transform: translate3d(2px,-2px,0);
 		}
 		span {
 			color: rgba(255,255,255,.75);
