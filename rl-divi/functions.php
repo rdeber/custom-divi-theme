@@ -18,7 +18,6 @@ function rl_assets() {
 	wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/slick.min.js', array( 'jquery', 'jquery-ui' ), false, true );
 	wp_enqueue_script( 'qtip2', get_stylesheet_directory_uri() . '/js/jquery.qtip.min.js', array( 'jquery', 'jquery-ui' ), false, true );
 	wp_enqueue_script( 'jquery.magnific-popup', get_stylesheet_directory_uri() . '/js/jquery.magnific-popup.js', array( 'jquery' ), false, true );
-	wp_enqueue_script( 'particles', get_stylesheet_directory_uri() . '/js/particles.js', array( 'jquery', 'jquery-ui' ), false, false );
 	wp_enqueue_script( 'snapsvg', get_stylesheet_directory_uri() . '/js/snap.svg-min.js', array(), false, false );
 	wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . '/js/custom.js', array( 'jquery' ), false, true );
 }
