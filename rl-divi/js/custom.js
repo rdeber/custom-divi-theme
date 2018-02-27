@@ -141,232 +141,236 @@ jQuery(document).ready(function($) {
     });
 
     //initialize and load gears svg
-    var g = Snap("#rl-gears-svg");
-    Snap.load("/wp-content/themes/rl-divi/images/svg/rl-gears.svg", onSVGLoaded2 );
+    if ($("#rl-gears-svg").length == 1) {
+        var g = Snap("#rl-gears-svg");
+        Snap.load("/wp-content/themes/rl-divi/images/svg/rl-gears.svg", onSVGLoaded2 );
 
-    function onSVGLoaded2(svg){
-        g.append(svg);
+        function onSVGLoaded2(svg){
+            g.append(svg);
 
 
-        $('path.rl-gear').hover(function() {
-            $('path.rl-gear').each(function(i){
-                var gearToSpin = $(this);
-                setTimeout(function() {
-                gearToSpin.closest('path.rl-gear').toggleClass('spinning');
-                }, 200*i);
+            $('path.rl-gear').hover(function() {
+                $('path.rl-gear').each(function(i){
+                    var gearToSpin = $(this);
+                    setTimeout(function() {
+                    gearToSpin.closest('path.rl-gear').toggleClass('spinning');
+                    }, 200*i);
+                })
             })
-        })
-        $(this).closest('path.rl-gear').addClass('spinning');
+            $(this).closest('path.rl-gear').addClass('spinning');
 
-        /*
-        function raysAnimation(){
-            var getGear = $(this).attr('id');
-            var gearspin = g.select('#'+getGear);
-            var bbox = gearspin.getBBox();
+            /*
+            function raysAnimation(){
+                var getGear = $(this).attr('id');
+                var gearspin = g.select('#'+getGear);
+                var bbox = gearspin.getBBox();
 
-            gearspin.animate({ transform: "r180," + bbox.cx + ',' + bbox.cy}, 2000);
-        }
-        $(".rl-gears path.rl-gear").hover(raysAnimation);
-        */
-    };
+                gearspin.animate({ transform: "r180," + bbox.cx + ',' + bbox.cy}, 2000);
+            }
+            $(".rl-gears path.rl-gear").hover(raysAnimation);
+            */
+        };
+    }
 
 
 
     //initialize and load solutions svg
-    var s = Snap("#solutions-svg");
-    Snap.load("/wp-content/themes/rl-divi/images/svg/rl-solutions-dots.svg", onSVGLoaded );
+    if ($("#solutions-svg").length == 1) {
+        var s = Snap("#solutions-svg");
+        Snap.load("/wp-content/themes/rl-divi/images/svg/rl-solutions-dots.svg", onSVGLoaded );
 
-    function onSVGLoaded(svg){
-        s.append(svg);
+        function onSVGLoaded(svg){
+            s.append(svg);
 
-        // Set default icon path colors
-        var icons = s.selectAll('.cls-4');
-        icons.attr({fill: '#ffffff', fillOpacity: '0.75'});
+            // Set default icon path colors
+            var icons = s.selectAll('.cls-4');
+            icons.attr({fill: '#ffffff', fillOpacity: '0.75'});
 
-        var hideTimeout;
-        function showNodeContent() {
-            // Deactiviate group highlighting.
-            deactivateGroup1();
-            deactivateGroup2();
-            deactivateGroup3();
-            deactivateGroup4();
-            // Scale individual dot.
-            var dotSel = $(this).attr('id');
-            if (dotSel) {
-                var dotscale = s.select('#'+dotSel);
-                dotscale.animate({transform: 's1.25,1.25' }, 0, mina.easeinout);
+            var hideTimeout;
+            function showNodeContent() {
+                // Deactiviate group highlighting.
+                deactivateGroup1();
+                deactivateGroup2();
+                deactivateGroup3();
+                deactivateGroup4();
+                // Scale individual dot.
+                var dotSel = $(this).attr('id');
+                if (dotSel) {
+                    var dotscale = s.select('#'+dotSel);
+                    dotscale.animate({transform: 's1.25,1.25' }, 0, mina.easeinout);
+                }
+                // Scale individual icon.
+                var iconSel = $(this).attr('data-icon');
+                if (iconSel) {
+                    var iconscale = s.select('#'+iconSel);
+                    iconscale.animate({
+                        fillOpacity:"1",
+                        transform: 's1.25,1.25'
+                    }, 0, mina.easeinout);
+                }
+                // Grab data-contentsel to use to find content to show.
+                var contentsel = $(this).attr('data-contentsel');
+                // Verify that the content is defined.
+                if (contentsel) {
+                    clearTimeout(hideTimeout);
+                    // Show content using content selector found in path attribute.
+                    $('.solutions-svg-list div.active').removeClass('active');
+                    $('.solutions-svg-list div#'+contentsel).addClass('active');
+                    // Hide main content.
+                    $('.solutions-svg-content').addClass('hidden');
+                    clearAutoPlay();
+                }
             }
-            // Scale individual icon.
-            var iconSel = $(this).attr('data-icon');
-            if (iconSel) {
-                var iconscale = s.select('#'+iconSel);
-                iconscale.animate({
-                    fillOpacity:"1",
-                    transform: 's1.25,1.25'
-                }, 0, mina.easeinout);
-            }
-            // Grab data-contentsel to use to find content to show.
-            var contentsel = $(this).attr('data-contentsel');
-            // Verify that the content is defined.
-            if (contentsel) {
+            function hideNodeContent() {
+                var dotSel = $(this).attr('id');
+                if (dotSel) {
+                    var dotscale = s.select('#'+dotSel);
+                    dotscale.animate({transform: 's1,1' }, 0, mina.easeinout);
+                }
+                var iconSel = $(this).attr('data-icon');
+                if (iconSel) {
+                    var iconscale = s.select('#'+iconSel);
+                    iconscale.animate({
+                        fillOpacity:"0.75",
+                        transform: 's1,1'
+                    }, 0, mina.easeinout);
+                }
                 clearTimeout(hideTimeout);
-                // Show content using content selector found in path attribute.
-                $('.solutions-svg-list div.active').removeClass('active');
-                $('.solutions-svg-list div#'+contentsel).addClass('active');
-                // Hide main content.
-                $('.solutions-svg-content').addClass('hidden');
+                hideTimeout = setTimeout(function() {
+                    // Hide content using content selector found in path attribute.
+                    $('.solutions-svg-list div').removeClass('active');
+                    // Show main content.
+                    $('.solutions-svg-content').removeClass('hidden');
+                }, 1000);
+
+            }
+            $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").hover(showNodeContent, hideNodeContent);
+            $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").focusin(showNodeContent);
+            $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").focusout(hideNodeContent);
+
+            //handle svg content links filtering
+            function activateGroup1() {
+                var group1 = s.selectAll(".cls-1");
+                group1.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
+                $("#solutions-svg").addClass("group-1-active");
+                $(".solutions-svg-btn-1").addClass("active");
                 clearAutoPlay();
             }
-        }
-        function hideNodeContent() {
-            var dotSel = $(this).attr('id');
-            if (dotSel) {
-                var dotscale = s.select('#'+dotSel);
-                dotscale.animate({transform: 's1,1' }, 0, mina.easeinout);
+            function deactivateGroup1() {
+                var group1 = s.selectAll(".cls-1");
+                group1.animate({transform: 's1,1' }, 0, mina.easeinout);
+                $("#solutions-svg").removeClass("group-1-active");
+                $(".solutions-svg-btn-1").removeClass("active");
+                clearAutoPlay();
             }
-            var iconSel = $(this).attr('data-icon');
-            if (iconSel) {
-                var iconscale = s.select('#'+iconSel);
-                iconscale.animate({
-                    fillOpacity:"0.75",
-                    transform: 's1,1'
-                }, 0, mina.easeinout);
+            $(".solutions-svg-btn-1").hover(activateGroup1, deactivateGroup1);
+            $(".solutions-svg-btn-1").focusin(activateGroup1);
+            $(".solutions-svg-btn-1").focusout(deactivateGroup1);
+
+            function activateGroup2() {
+                var group2 = s.selectAll(".cls-2");
+                group2.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
+                $("#solutions-svg").addClass("group-2-active");
+                $(".solutions-svg-btn-2").addClass("active");
+                clearAutoPlay();
             }
-            clearTimeout(hideTimeout);
-            hideTimeout = setTimeout(function() {
-                // Hide content using content selector found in path attribute.
-                $('.solutions-svg-list div').removeClass('active');
-                // Show main content.
-                $('.solutions-svg-content').removeClass('hidden');
-            }, 1000);
-
-        }
-        $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").hover(showNodeContent, hideNodeContent);
-        $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").focusin(showNodeContent);
-        $(".circles-1 path.cls-1, .circles-2 path.cls-2, .circles-3 path.cls-3").focusout(hideNodeContent);
-
-        //handle svg content links filtering
-        function activateGroup1() {
-            var group1 = s.selectAll(".cls-1");
-            group1.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
-            $("#solutions-svg").addClass("group-1-active");
-            $(".solutions-svg-btn-1").addClass("active");
-            clearAutoPlay();
-        }
-        function deactivateGroup1() {
-            var group1 = s.selectAll(".cls-1");
-            group1.animate({transform: 's1,1' }, 0, mina.easeinout);
-            $("#solutions-svg").removeClass("group-1-active");
-            $(".solutions-svg-btn-1").removeClass("active");
-            clearAutoPlay();
-        }
-        $(".solutions-svg-btn-1").hover(activateGroup1, deactivateGroup1);
-        $(".solutions-svg-btn-1").focusin(activateGroup1);
-        $(".solutions-svg-btn-1").focusout(deactivateGroup1);
-
-        function activateGroup2() {
-            var group2 = s.selectAll(".cls-2");
-            group2.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
-            $("#solutions-svg").addClass("group-2-active");
-            $(".solutions-svg-btn-2").addClass("active");
-            clearAutoPlay();
-        }
-        function deactivateGroup2() {
-            var group2 = s.selectAll(".cls-2");
-            group2.animate({transform: 's1,1' }, 0, mina.easeinout);
-            $("#solutions-svg").removeClass("group-2-active");
-            $(".solutions-svg-btn-2").removeClass("active");
-            clearAutoPlay();
-        }
-        $(".solutions-svg-btn-2").hover(activateGroup2, deactivateGroup2);
-        $(".solutions-svg-btn-2").focusin(activateGroup2);
-        $(".solutions-svg-btn-2").focusout(deactivateGroup2);
-
-        function activateGroup3() {
-            var group3 = s.selectAll(".cls-3");
-            group3.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
-            $("#solutions-svg").addClass("group-3-active");
-            $(".solutions-svg-btn-3").addClass("active");
-            clearAutoPlay();
-        }
-        function deactivateGroup3() {
-            var group3 = s.selectAll(".cls-3");
-            group3.animate({transform: 's1,1' }, 0, mina.easeinout);
-            $("#solutions-svg").removeClass("group-3-active");
-            $(".solutions-svg-btn-3").removeClass("active");
-            clearAutoPlay();
-        }
-        $(".solutions-svg-btn-3").hover(activateGroup3, deactivateGroup3);
-        $(".solutions-svg-btn-3").focusin(activateGroup3);
-        $(".solutions-svg-btn-3").focusout(deactivateGroup3);
-
-        function activateGroup4() {
-            var group4 = s.selectAll(".lines");
-            group4.animate({transform: 's.95,.95' }, 0, mina.easeinout);
-            $("#solutions-svg").addClass("group-4-active");
-            $(".solutions-svg-btn-4").addClass("active");
-            clearAutoPlay();
-        }
-        function deactivateGroup4() {
-            var group4 = s.selectAll(".lines");
-            group4.animate({transform: 's1,1' }, 0, mina.easeinout);
-            $("#solutions-svg").removeClass("group-4-active");
-            $(".solutions-svg-btn-4").removeClass("active");
-            clearAutoPlay();
-        }
-        $(".solutions-svg-btn-4").hover(activateGroup4, deactivateGroup4);
-        $(".solutions-svg-btn-4").focusin(activateGroup4);
-        $(".solutions-svg-btn-4").focusout(deactivateGroup4);
-
-        var count = 1;
-        var graphicAutoPlayInPause = 3000;
-        var graphicAutoPlayOutPause = 2000;
-        var graphicAutoPlayIn;
-        var graphicAutoPlayOut;
-        function startAutoPlay(initialDelay) {
-            if (!initialDelay) {
-                initialDelay = 0;
+            function deactivateGroup2() {
+                var group2 = s.selectAll(".cls-2");
+                group2.animate({transform: 's1,1' }, 0, mina.easeinout);
+                $("#solutions-svg").removeClass("group-2-active");
+                $(".solutions-svg-btn-2").removeClass("active");
+                clearAutoPlay();
             }
-            graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause+initialDelay);
-        }
-        function clearAutoPlay() {
-            clearTimeout(graphicAutoPlayIn);
-            clearTimeout(graphicAutoPlayOut);
-        }
-        function handleGraphicAutoPlay() {
-            if (count == 1) {
-                activateGroup1();
-                graphicAutoPlayOut = setTimeout(function() {
-                    deactivateGroup1();
-                    graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
-                }, graphicAutoPlayOutPause);
-            } else if (count == 2) {
-                activateGroup2();
-                graphicAutoPlayOut = setTimeout(function() {
-                    deactivateGroup2();
-                    graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
-                }, graphicAutoPlayOutPause);
-            } else if (count == 3) {
-                activateGroup3();
-                graphicAutoPlayOut = setTimeout(function() {
-                    deactivateGroup3();
-                    graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
-                }, graphicAutoPlayOutPause);
-            } else if (count == 4) {
-                activateGroup4();
-                graphicAutoPlayOut = setTimeout(function() {
-                    deactivateGroup4();
-                    graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
-                }, graphicAutoPlayOutPause);
+            $(".solutions-svg-btn-2").hover(activateGroup2, deactivateGroup2);
+            $(".solutions-svg-btn-2").focusin(activateGroup2);
+            $(".solutions-svg-btn-2").focusout(deactivateGroup2);
+
+            function activateGroup3() {
+                var group3 = s.selectAll(".cls-3");
+                group3.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
+                $("#solutions-svg").addClass("group-3-active");
+                $(".solutions-svg-btn-3").addClass("active");
+                clearAutoPlay();
             }
-            count++;
-            if (count > 4) {
-                count = 1;
+            function deactivateGroup3() {
+                var group3 = s.selectAll(".cls-3");
+                group3.animate({transform: 's1,1' }, 0, mina.easeinout);
+                $("#solutions-svg").removeClass("group-3-active");
+                $(".solutions-svg-btn-3").removeClass("active");
+                clearAutoPlay();
             }
-        }
-        // TODO: delay starting until scrolled in to view...
-        startAutoPlay(1000);
-    };
+            $(".solutions-svg-btn-3").hover(activateGroup3, deactivateGroup3);
+            $(".solutions-svg-btn-3").focusin(activateGroup3);
+            $(".solutions-svg-btn-3").focusout(deactivateGroup3);
+
+            function activateGroup4() {
+                var group4 = s.selectAll(".lines");
+                group4.animate({transform: 's.95,.95' }, 0, mina.easeinout);
+                $("#solutions-svg").addClass("group-4-active");
+                $(".solutions-svg-btn-4").addClass("active");
+                clearAutoPlay();
+            }
+            function deactivateGroup4() {
+                var group4 = s.selectAll(".lines");
+                group4.animate({transform: 's1,1' }, 0, mina.easeinout);
+                $("#solutions-svg").removeClass("group-4-active");
+                $(".solutions-svg-btn-4").removeClass("active");
+                clearAutoPlay();
+            }
+            $(".solutions-svg-btn-4").hover(activateGroup4, deactivateGroup4);
+            $(".solutions-svg-btn-4").focusin(activateGroup4);
+            $(".solutions-svg-btn-4").focusout(deactivateGroup4);
+
+            var count = 1;
+            var graphicAutoPlayInPause = 3000;
+            var graphicAutoPlayOutPause = 2000;
+            var graphicAutoPlayIn;
+            var graphicAutoPlayOut;
+            function startAutoPlay(initialDelay) {
+                if (!initialDelay) {
+                    initialDelay = 0;
+                }
+                graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause+initialDelay);
+            }
+            function clearAutoPlay() {
+                clearTimeout(graphicAutoPlayIn);
+                clearTimeout(graphicAutoPlayOut);
+            }
+            function handleGraphicAutoPlay() {
+                if (count == 1) {
+                    activateGroup1();
+                    graphicAutoPlayOut = setTimeout(function() {
+                        deactivateGroup1();
+                        graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                    }, graphicAutoPlayOutPause);
+                } else if (count == 2) {
+                    activateGroup2();
+                    graphicAutoPlayOut = setTimeout(function() {
+                        deactivateGroup2();
+                        graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                    }, graphicAutoPlayOutPause);
+                } else if (count == 3) {
+                    activateGroup3();
+                    graphicAutoPlayOut = setTimeout(function() {
+                        deactivateGroup3();
+                        graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                    }, graphicAutoPlayOutPause);
+                } else if (count == 4) {
+                    activateGroup4();
+                    graphicAutoPlayOut = setTimeout(function() {
+                        deactivateGroup4();
+                        graphicAutoPlayIn = setTimeout(handleGraphicAutoPlay, graphicAutoPlayInPause);
+                    }, graphicAutoPlayOutPause);
+                }
+                count++;
+                if (count > 4) {
+                    count = 1;
+                }
+            }
+            // TODO: delay starting until scrolled in to view...
+            startAutoPlay(1000);
+        };
+    }
 
 });
 
