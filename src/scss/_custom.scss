@@ -348,9 +348,6 @@ $solutions-color4: $rl-gray-300;
 		min-height: 75vh;
 	}
 
-	path {
-		transition: all 250ms ease-in-out;
-	}
 	.circles-1 path {
 		fill: $solutions-color1;
 	}
@@ -365,6 +362,13 @@ $solutions-color4: $rl-gray-300;
 	}
 	.icons path {
 		pointer-events: none;
+	}
+
+	&.group-1-active path,
+	&.group-2-active path,
+	&.group-3-active path,
+	&.group-4-active path {
+		transition: all 250ms ease-in-out;
 	}
 
 	&.group-1-active {
