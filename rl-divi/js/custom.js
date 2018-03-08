@@ -197,12 +197,14 @@ jQuery(document).ready(function($) {
                 var dotSel = $(this).attr('id');
                 if (dotSel) {
                     var dotscale = s.select('#'+dotSel);
+                    dotscale.stop();
                     dotscale.animate({transform: 's1.25,1.25' }, 250, mina.easeinout);
                 }
                 // Scale individual icon.
                 var iconSel = $(this).attr('data-icon');
                 if (iconSel) {
                     var iconscale = s.select('#'+iconSel);
+                    iconscale.stop();
                     iconscale.animate({
                         fillOpacity: '1',
                         transform: 's1.25,1.25'
@@ -225,11 +227,13 @@ jQuery(document).ready(function($) {
                 var dotSel = $(this).attr('id');
                 if (dotSel) {
                     var dotscale = s.select('#'+dotSel);
+                    dotscale.stop();
                     dotscale.animate({transform: 's1,1' }, 250, mina.easeinout);
                 }
                 var iconSel = $(this).attr('data-icon');
                 if (iconSel) {
                     var iconscale = s.select('#'+iconSel);
+                    iconscale.stop();
                     iconscale.animate({
                         fillOpacity: '0.75',
                         transform: 's1,1'
