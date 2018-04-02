@@ -166,6 +166,12 @@ $solutions-color4: $rl-gray-300;
 	.solutions-svg-container {
 		order: 1;
 		margin-bottom: 3rem;
+		min-height: 300px;
+
+		svg {
+			//match min-height of parent element
+			min-height: 300px;
+		}
 	}
 
 	// only apply these styles to non mobile devices
@@ -182,6 +188,12 @@ $solutions-color4: $rl-gray-300;
 			margin: auto;
 			width: 50%;
 			flex: 1;
+			min-height: 500px;
+
+			svg {
+				//match min-height of parent element
+				min-height: 500px;
+			}
 		}
 	}
 }
@@ -339,14 +351,8 @@ $solutions-color4: $rl-gray-300;
 
 //solutions svg graphic styles
 #solutions-svg {
-	min-height: 50vh;
-
-	// only apply these styles to non mobile devices
-	@include breakpoint(tablet) {
-		height: 100%;
-		width: 100%;
-		min-height: 75vh;
-	}
+	height: 100%;
+	width: 100%;
 
 	.circles-1 path {
 		fill: $solutions-color1;
