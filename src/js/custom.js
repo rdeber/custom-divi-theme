@@ -194,6 +194,7 @@ jQuery(document).ready(function($) {
                 deactivateGroup3();
                 deactivateGroup4();
                 // Scale individual dot.
+                $(this).addClass('dotAnimActive');
                 var dotSel = $(this).attr('id');
                 if (dotSel) {
                     var dotscale = s.select('#'+dotSel);
@@ -224,20 +225,23 @@ jQuery(document).ready(function($) {
                 }
             }
             function hideNodeContent() {
-                var dotSel = $(this).attr('id');
-                if (dotSel) {
-                    var dotscale = s.select('#'+dotSel);
-                    dotscale.stop();
-                    dotscale.animate({transform: 's1,1' }, 250, mina.easeinout);
-                }
-                var iconSel = $(this).attr('data-icon');
-                if (iconSel) {
-                    var iconscale = s.select('#'+iconSel);
-                    iconscale.stop();
-                    iconscale.animate({
-                        fillOpacity: '0.75',
-                        transform: 's1,1'
-                    }, 250, mina.easeinout);
+                if ($(this).hasClass('dotAnimActive')) {
+                    $(this).removeClass('dotAnimActive');
+                    var dotSel = $(this).attr('id');
+                    if (dotSel) {
+                        var dotscale = s.select('#'+dotSel);
+                        dotscale.stop();
+                        dotscale.animate({transform: 's1,1' }, 250, mina.easeinout);
+                    }
+                    var iconSel = $(this).attr('data-icon');
+                    if (iconSel) {
+                        var iconscale = s.select('#'+iconSel);
+                        iconscale.stop();
+                        iconscale.animate({
+                            fillOpacity: '0.75',
+                            transform: 's1,1'
+                        }, 250, mina.easeinout);
+                    }
                 }
                 clearTimeout(hideTimeout);
                 hideTimeout = setTimeout(function() {
@@ -254,6 +258,7 @@ jQuery(document).ready(function($) {
 
             //handle svg content links filtering
             function activateGroup1() {
+                $('.circles-1').addClass('groupAnimActive');
                 var group1 = s.selectAll(".cls-1");
                 group1.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
                 $("#solutions-svg").addClass("group-1-active");
@@ -261,10 +266,13 @@ jQuery(document).ready(function($) {
                 clearAutoPlay();
             }
             function deactivateGroup1() {
-                var group1 = s.selectAll(".cls-1");
-                group1.animate({transform: 's1,1' }, 0, mina.easeinout);
-                $("#solutions-svg").removeClass("group-1-active");
-                $(".solutions-svg-btn-1").removeClass("active");
+                if ($('.circles-1').hasClass('groupAnimActive')) {
+                    $('.circles-1').removeClass('groupAnimActive');
+                    var group1 = s.selectAll(".cls-1");
+                    group1.animate({transform: 's1,1' }, 0, mina.easeinout);
+                    $("#solutions-svg").removeClass("group-1-active");
+                    $(".solutions-svg-btn-1").removeClass("active");
+                }
                 clearAutoPlay();
             }
             $(".solutions-svg-btn-1").hover(activateGroup1, deactivateGroup1);
@@ -272,6 +280,7 @@ jQuery(document).ready(function($) {
             $(".solutions-svg-btn-1").focusout(deactivateGroup1);
 
             function activateGroup2() {
+                $('.circles-2').addClass('groupAnimActive');
                 var group2 = s.selectAll(".cls-2");
                 group2.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
                 $("#solutions-svg").addClass("group-2-active");
@@ -279,10 +288,13 @@ jQuery(document).ready(function($) {
                 clearAutoPlay();
             }
             function deactivateGroup2() {
-                var group2 = s.selectAll(".cls-2");
-                group2.animate({transform: 's1,1' }, 0, mina.easeinout);
-                $("#solutions-svg").removeClass("group-2-active");
-                $(".solutions-svg-btn-2").removeClass("active");
+                if ($('.circles-2').hasClass('groupAnimActive')) {
+                    $('.circles-2').removeClass('groupAnimActive');
+                    var group2 = s.selectAll(".cls-2");
+                    group2.animate({transform: 's1,1' }, 0, mina.easeinout);
+                    $("#solutions-svg").removeClass("group-2-active");
+                    $(".solutions-svg-btn-2").removeClass("active");
+                }
                 clearAutoPlay();
             }
             $(".solutions-svg-btn-2").hover(activateGroup2, deactivateGroup2);
@@ -290,6 +302,7 @@ jQuery(document).ready(function($) {
             $(".solutions-svg-btn-2").focusout(deactivateGroup2);
 
             function activateGroup3() {
+                $('.circles-3').addClass('groupAnimActive');
                 var group3 = s.selectAll(".cls-3");
                 group3.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
                 $("#solutions-svg").addClass("group-3-active");
@@ -297,10 +310,13 @@ jQuery(document).ready(function($) {
                 clearAutoPlay();
             }
             function deactivateGroup3() {
-                var group3 = s.selectAll(".cls-3");
-                group3.animate({transform: 's1,1' }, 0, mina.easeinout);
-                $("#solutions-svg").removeClass("group-3-active");
-                $(".solutions-svg-btn-3").removeClass("active");
+                if ($('.circles-3').hasClass('groupAnimActive')) {
+                    $('.circles-3').removeClass('groupAnimActive');
+                    var group3 = s.selectAll(".cls-3");
+                    group3.animate({transform: 's1,1' }, 0, mina.easeinout);
+                    $("#solutions-svg").removeClass("group-3-active");
+                    $(".solutions-svg-btn-3").removeClass("active");
+                }
                 clearAutoPlay();
             }
             $(".solutions-svg-btn-3").hover(activateGroup3, deactivateGroup3);
@@ -308,6 +324,7 @@ jQuery(document).ready(function($) {
             $(".solutions-svg-btn-3").focusout(deactivateGroup3);
 
             function activateGroup4() {
+                $('.lines').addClass('groupAnimActive');
                 var group4 = s.selectAll(".lines");
                 group4.animate({transform: 's.95,.95' }, 0, mina.easeinout);
                 $("#solutions-svg").addClass("group-4-active");
@@ -315,10 +332,13 @@ jQuery(document).ready(function($) {
                 clearAutoPlay();
             }
             function deactivateGroup4() {
-                var group4 = s.selectAll(".lines");
-                group4.animate({transform: 's1,1' }, 0, mina.easeinout);
-                $("#solutions-svg").removeClass("group-4-active");
-                $(".solutions-svg-btn-4").removeClass("active");
+                if ($('.lines').hasClass('groupAnimActive')) {
+                    $('.lines').removeClass('groupAnimActive');
+                    var group4 = s.selectAll(".lines");
+                    group4.animate({transform: 's1,1' }, 0, mina.easeinout);
+                    $("#solutions-svg").removeClass("group-4-active");
+                    $(".solutions-svg-btn-4").removeClass("active");
+                }
                 clearAutoPlay();
             }
             $(".solutions-svg-btn-4").hover(activateGroup4, deactivateGroup4);
