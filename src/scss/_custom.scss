@@ -143,6 +143,7 @@ $solutions-color4: $rl-gray-300;
 	flex-direction: column;
 
 	.solutions-text-container {
+		text-align: left;
 		order: 2;
 
 		h2 {
@@ -169,6 +170,7 @@ $solutions-color4: $rl-gray-300;
 		min-height: 300px;
 
 		svg {
+			overflow: visible;
 			//match min-height of parent element
 			min-height: 300px;
 		}
@@ -201,12 +203,12 @@ $solutions-color4: $rl-gray-300;
 //solutions svg content styles
 .solutions-svg-content {
 	margin-bottom: 2rem;
+	position: relative;
 	transition: all 250ms ease-in-out;
 
 	// only apply these styles to non mobile devices
 	@include breakpoint(tablet) {
 		margin-bottom: auto;
-		position: absolute;
 		opacity: 1;
 
 		&.hidden {
@@ -215,23 +217,49 @@ $solutions-color4: $rl-gray-300;
 		}
 	}
 
+	.solutions-filters {
+		padding: 0;
+		margin: -.5rem 0 .75rem 1rem;
+
+		li {
+			list-style: none;
+		}
+	}
+
 	a {
-		font-weight: normal;
-		color: #555;
-		border-bottom: 2px dashed #ddd;
+		font-weight: bold;
+		font-size: .95rem;
+		color: #777;
+		display: inline-block;
+		padding: .3rem;
+		margin-bottom: .1rem;
+		border-radius: 3px;
 		transition: all 250ms ease-in-out;
 
+		.svg-inline--fa {
+			margin-right: .4rem;
+			transition: all 250ms ease-in-out;
+		}
+
 		&.solutions-svg-btn-1 {
-			border-color: $solutions-color1;
+			.svg-inline--fa {
+				color: $solutions-color1;
+			}
 		}
 		&.solutions-svg-btn-2 {
-			border-color: $solutions-color2;
+			.svg-inline--fa {
+				color: $solutions-color2;
+			}
 		}
 		&.solutions-svg-btn-3 {
-			border-color: $solutions-color3;
+			.svg-inline--fa {
+				color: $solutions-color3;
+			}
 		}
 		&.solutions-svg-btn-4 {
-			border-color: $solutions-color4;
+			.svg-inline--fa {
+				color: shade($solutions-color4, 25%)
+			}
 		}
 
 		&:hover,
@@ -241,16 +269,28 @@ $solutions-color4: $rl-gray-300;
 
 			&.solutions-svg-btn-1 {
 				background: $solutions-color1;
+				.svg-inline--fa {
+					color: #fff;
+				}
 			}
 			&.solutions-svg-btn-2 {
 				background: $solutions-color2;
+				.svg-inline--fa {
+					color: #fff;
+				}
 			}
 			&.solutions-svg-btn-3 {
 				background: $solutions-color3;
+				.svg-inline--fa {
+					color: #fff;
+				}
 			}
 			&.solutions-svg-btn-4 {
-				background: $solutions-color4;
+				background: shade($solutions-color4, 15%);
 				color: #111;
+				.svg-inline--fa {
+					color: #fff;
+				}
 			}
 		}
 	}
@@ -354,6 +394,10 @@ $solutions-color4: $rl-gray-300;
 	height: 100%;
 	width: 100%;
 
+	path {
+		transition: all 250ms ease-in-out;
+	}
+
 	.circles-1 path {
 		fill: $solutions-color1;
 	}
@@ -406,6 +450,7 @@ $solutions-color4: $rl-gray-300;
 		}
 		path.lines {
 			fill: $rl-gray-500;
+			z-index: 999;
 		}
 	}
 }
