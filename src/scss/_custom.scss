@@ -214,6 +214,7 @@ $solutions-color4: $rl-gray-300;
 		&.hidden {
 			visibility: hidden;
 			opacity: 0;
+			border: none;
 		}
 	}
 
@@ -394,10 +395,6 @@ $solutions-color4: $rl-gray-300;
 	height: 100%;
 	width: 100%;
 
-	path {
-		transition: all 250ms ease-in-out;
-	}
-
 	.circles-1 path {
 		fill: $solutions-color1;
 	}
@@ -414,11 +411,8 @@ $solutions-color4: $rl-gray-300;
 		pointer-events: none;
 	}
 
-	&.group-1-active path,
-	&.group-2-active path,
-	&.group-3-active path,
-	&.group-4-active path {
-		transition: all 250ms ease-in-out;
+	path {
+		transition: fill-opacity 250ms ease-in-out, fill 250ms ease-in-out;
 	}
 
 	&.group-1-active {
@@ -443,14 +437,13 @@ $solutions-color4: $rl-gray-300;
 		.circles-1 path,
 		.circles-2 path,
 		.circles-3 path {
-			fill-opacity: .2;
+			fill-opacity: .15;
 		}
 		.icons path {
-			fill-opacity: 0;
+			fill-opacity: 0 !important;
 		}
 		path.lines {
-			fill: $rl-gray-500;
-			z-index: 999;
+			fill: $rl-gray-400;
 		}
 	}
 }

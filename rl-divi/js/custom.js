@@ -260,7 +260,7 @@ jQuery(document).ready(function($) {
             function activateGroup1() {
                 $('.circles-1').addClass('groupAnimActive');
                 var group1 = s.selectAll(".cls-1");
-                group1.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
+                group1.animate({transform: 's1.08,1.08' }, 250, mina.easeinout);
                 $("#solutions-svg").addClass("group-1-active");
                 $(".solutions-svg-btn-1").addClass("active");
                 clearAutoPlay();
@@ -269,7 +269,7 @@ jQuery(document).ready(function($) {
                 if ($('.circles-1').hasClass('groupAnimActive')) {
                     $('.circles-1').removeClass('groupAnimActive');
                     var group1 = s.selectAll(".cls-1");
-                    group1.animate({transform: 's1,1' }, 0, mina.easeinout);
+                    group1.animate({transform: 's1,1' }, 250, mina.easeinout);
                     $("#solutions-svg").removeClass("group-1-active");
                     $(".solutions-svg-btn-1").removeClass("active");
                 }
@@ -282,7 +282,7 @@ jQuery(document).ready(function($) {
             function activateGroup2() {
                 $('.circles-2').addClass('groupAnimActive');
                 var group2 = s.selectAll(".cls-2");
-                group2.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
+                group2.animate({transform: 's1.08,1.08' }, 250, mina.easeinout);
                 $("#solutions-svg").addClass("group-2-active");
                 $(".solutions-svg-btn-2").addClass("active");
                 clearAutoPlay();
@@ -291,7 +291,7 @@ jQuery(document).ready(function($) {
                 if ($('.circles-2').hasClass('groupAnimActive')) {
                     $('.circles-2').removeClass('groupAnimActive');
                     var group2 = s.selectAll(".cls-2");
-                    group2.animate({transform: 's1,1' }, 0, mina.easeinout);
+                    group2.animate({transform: 's1,1' }, 250, mina.easeinout);
                     $("#solutions-svg").removeClass("group-2-active");
                     $(".solutions-svg-btn-2").removeClass("active");
                 }
@@ -304,7 +304,7 @@ jQuery(document).ready(function($) {
             function activateGroup3() {
                 $('.circles-3').addClass('groupAnimActive');
                 var group3 = s.selectAll(".cls-3");
-                group3.animate({transform: 's1.08,1.08' }, 0, mina.easeinout);
+                group3.animate({transform: 's1.08,1.08' }, 250, mina.easeinout);
                 $("#solutions-svg").addClass("group-3-active");
                 $(".solutions-svg-btn-3").addClass("active");
                 clearAutoPlay();
@@ -313,7 +313,7 @@ jQuery(document).ready(function($) {
                 if ($('.circles-3').hasClass('groupAnimActive')) {
                     $('.circles-3').removeClass('groupAnimActive');
                     var group3 = s.selectAll(".cls-3");
-                    group3.animate({transform: 's1,1' }, 0, mina.easeinout);
+                    group3.animate({transform: 's1,1' }, 250, mina.easeinout);
                     $("#solutions-svg").removeClass("group-3-active");
                     $(".solutions-svg-btn-3").removeClass("active");
                 }
@@ -326,7 +326,7 @@ jQuery(document).ready(function($) {
             function activateGroup4() {
                 $('.lines').addClass('groupAnimActive');
                 var group4 = s.selectAll(".lines");
-                group4.animate({transform: 's.95,.95' }, 0, mina.easeinout);
+                group4.animate({transform: 's.95,.95' }, 250, mina.easeinout);
                 $("#solutions-svg").addClass("group-4-active");
                 $(".solutions-svg-btn-4").addClass("active");
                 clearAutoPlay();
@@ -335,7 +335,7 @@ jQuery(document).ready(function($) {
                 if ($('.lines').hasClass('groupAnimActive')) {
                     $('.lines').removeClass('groupAnimActive');
                     var group4 = s.selectAll(".lines");
-                    group4.animate({transform: 's1,1' }, 0, mina.easeinout);
+                    group4.animate({transform: 's1,1' }, 250, mina.easeinout);
                     $("#solutions-svg").removeClass("group-4-active");
                     $(".solutions-svg-btn-4").removeClass("active");
                 }
