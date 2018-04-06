@@ -326,7 +326,7 @@ jQuery(document).ready(function($) {
             function activateGroup4() {
                 $('.lines').addClass('groupAnimActive');
                 var group4 = s.selectAll(".lines");
-                group4.animate({transform: 's.95,.95' }, 250, mina.easeinout);
+                group4.animate({transform: 's.99,.99' }, 250, mina.easeinout);
                 $("#solutions-svg").addClass("group-4-active");
                 $(".solutions-svg-btn-4").addClass("active");
                 clearAutoPlay();

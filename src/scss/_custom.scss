@@ -214,7 +214,6 @@ $solutions-color4: $rl-gray-300;
 		&.hidden {
 			visibility: hidden;
 			opacity: 0;
-			border: none;
 		}
 	}
 
@@ -350,8 +349,9 @@ $solutions-color4: $rl-gray-300;
 			position: absolute;
 			visibility: hidden;
 			margin-top: 1rem;
+			border: none;
 			z-index: 1;
-			will-change: transform, opacity;
+			backface-visibility: hidden;
 			animation: solution-hover-out .5s 1 cubic-bezier(0.7, 0, 0.3, 1);
 			transition: all .5s cubic-bezier(0.7, 0, 0.3, 1);
 
