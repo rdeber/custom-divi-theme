@@ -147,28 +147,6 @@ jQuery(document).ready(function($) {
 
         function onSVGLoaded2(svg){
             g.append(svg);
-
-
-            $('path.rl-gear').hover(function() {
-                $('path.rl-gear').each(function(i){
-                    var gearToSpin = $(this);
-                    setTimeout(function() {
-                    gearToSpin.closest('path.rl-gear').toggleClass('spinning');
-                    }, 200*i);
-                })
-            })
-            $(this).closest('path.rl-gear').addClass('spinning');
-
-            /*
-            function raysAnimation(){
-                var getGear = $(this).attr('id');
-                var gearspin = g.select('#'+getGear);
-                var bbox = gearspin.getBBox();
-
-                gearspin.animate({ transform: "r180," + bbox.cx + ',' + bbox.cy}, 2000);
-            }
-            $(".rl-gears path.rl-gear").hover(raysAnimation);
-            */
         };
     }
 
