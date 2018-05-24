@@ -3807,6 +3807,8 @@ body.home #particles-js {
 }
 
 //override logo styles for single post pages
+.page-id-38271,
+.page-id-38267,
 .single-post,
 .author {
 	#main-header {
@@ -3975,6 +3977,8 @@ li#sidepanel-follow-links {
 .mobile_menu_bar:before {
     color: rgba(255,255,255,.5)!important;
 
+	.page-id-38271 &,
+	.page-id-38267 &,
     .et-fixed-header &,
     .single-post &,
     .author & {
@@ -4266,5 +4270,84 @@ body.et_pb_slide_menu_active {
 	}
 	100% {
 		transform: translateX(0);
+	}
+}
+
+
+// Privacy policy related styles.
+.rl-policy-container {
+	text-align: center;
+}
+.rl-policy-wrap {
+    text-align: center;
+    max-width: 960px;
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.rl-policy {
+	@include mdElevationElement('card');
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 50%;
+	background: #555;
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+	@include breakpoint(tablet) {
+		flex: 1 0 20%;
+	}
+
+	&:nth-of-type(1) {
+		background: $rl-blue;
+	}
+	&:nth-of-type(2) {
+		background: $rl-purple;
+	}
+	&:nth-of-type(3) {
+		background: $rl-teal;
+	}
+	&:nth-of-type(4) {
+		background: $rl-orange;
+	}
+	&:nth-of-type(5) {
+		background: $rl-yellow;
+	}
+
+	&:hover,
+	&:focus {
+		z-index: 2;
+
+		&:nth-of-type(1) {
+			background: shade($rl-blue, 15%);
+		}
+		&:nth-of-type(2) {
+			background: shade($rl-purple, 15%);
+		}
+		&:nth-of-type(3) {
+			background: shade($rl-teal, 15%);
+		}
+		&:nth-of-type(4) {
+			background: shade($rl-orange, 15%);
+		}
+		&:nth-of-type(5) {
+			background: shade($rl-yellow, 15%);
+		}
+	}
+
+	svg {
+		color: #fff;
+		font-size: 4rem;
+		text-align: center;
+		margin: 3rem auto;
+	}
+
+	h2 {
+		background: #fff;
+		font-size: 1rem;
+		padding: .75rem;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 }
