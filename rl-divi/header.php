@@ -33,6 +33,7 @@
 	<?php wp_head(); ?>
 
 	<script defer src="https://pro.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-DtPgXIYsUR6lLmJK14ZNUi11aAoezQtw4ut26Zwy9/6QXHH8W3+gjrRDT+lHiiW4" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
 
 </head>
 <body <?php body_class(); ?>>
