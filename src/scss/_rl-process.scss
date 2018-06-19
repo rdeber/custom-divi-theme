@@ -1,7 +1,6 @@
 ////////////////////////////////////////
 // RL-Process Section Styles. /////////
 //////////////////////////////////////
-
 .rl-process-wrap {
     display: block;
     padding: 4rem 1rem;
@@ -245,5 +244,103 @@
     .rl-process-intro img,
     .rl-process p {
         display: none;
+    }
+}
+
+// V3 starts here.
+.rl-process-text {
+    section.et_pb_fullwidth_header {
+        padding-bottom: 0;
+    }
+    .et_pb_fullwidth_header .et_pb_header_content {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+}
+.rl-process-v3 {
+    &.rl-process-wrap {
+        padding-top: 0;
+
+        @include breakpoint(laptop) {
+            grid-template-columns: 40% 20% 40%;
+            grid-template-areas:
+            "process-1 process-text process-9"
+            "process-2 process-text process-8"
+            "process-3 process-text process-7"
+            "process-4 process-5    process-6";
+        }
+    }
+    .rl-process-intro {
+        margin-bottom: auto;
+    }
+    .rl-process {
+        h3 {
+            font-family: 'Cabin Sketch', cursive;
+            font-size: 1.75rem;
+            font-weight: bold;
+        }
+        p {
+            max-width: 100%;
+            padding: 0 2rem;
+        }
+    }
+
+}
+
+.rl-process {
+
+    .rl-process-icons {
+        position: relative;
+        max-width: 410px;
+        margin: auto;
+
+        .svg-inline--fa {
+            position: absolute;
+            font-size: 1.5rem;
+        }
+        .svg-inline--fa:first-of-type {
+            font-size: 4rem;
+            position: relative;
+        }
+        .svg-inline--fa:nth-of-type(2) {
+            transform: rotate(-12deg);
+            top: -18px;
+            left: 162px;
+        }
+        .svg-inline--fa:nth-of-type(3) {
+            transform: rotate(15deg);
+            top: -2px;
+            left: 251px;
+        }
+        .svg-inline--fa:nth-of-type(4) {
+            transform: rotate(-10deg);
+            top: 46px;
+            left: 127px;
+        }
+        .svg-inline--fa:nth-of-type(5) {
+            transform: rotate(-10deg);
+            top: 55px;
+            left: 258px;
+        }
+    }
+    &-2 {
+        .rl-process-icons {
+            .svg-inline--fa:nth-of-type(2) {
+                top: -16px;
+                left: 148px;
+            }
+            .svg-inline--fa:nth-of-type(3) {
+                top: -7px;
+                left: 245px;
+            }
+            .svg-inline--fa:nth-of-type(4) {
+                top: 40px;
+                left: 127px;
+            }
+            .svg-inline--fa:nth-of-type(5) {
+                top: 43px;
+                left: 264px;
+            }
+        }
     }
 }
