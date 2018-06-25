@@ -282,3 +282,12 @@ md-elevation-transition {
     }
   }
 }
+
+
+// Cubic-bezier easing variables.
+// Standard
+$ease:     cubic-bezier(0.4, 0.0, 0.2, 1);
+// Incoming
+$ease-in:  cubic-bezier(0.0, 0.0, 0.2, 1);
+// Exiting
+$ease-out: cubic-bezier(0.4, 0.0, 1, 1);
