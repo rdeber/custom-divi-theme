@@ -34,7 +34,6 @@
 
 	<script defer src="https://pro.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-DtPgXIYsUR6lLmJK14ZNUi11aAoezQtw4ut26Zwy9/6QXHH8W3+gjrRDT+lHiiW4" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet">
 
 </head>
 <body <?php body_class(); ?>>
@@ -205,7 +204,7 @@
 					endif;
 				?>
 
-					<li id="sidepanel-follow-links">
+					<li id="sidepanel-follow-links" class="sidepanel-footer">
 						<?php if ( function_exists( 'ADDTOANY_FOLLOW_KIT' ) ) {
 						    ADDTOANY_FOLLOW_KIT( array(
 						        'buttons' => array(
@@ -217,6 +216,9 @@
 						        ),
 						    ) );
 						} ?>
+					</li>
+					<li id="sidepanel-policy-link" class="sidepanel-footer">
+						<a href="/policy-documents/">Policies</a>
 					</li>
 				</ul>
 			</div>
